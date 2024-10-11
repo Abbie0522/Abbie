@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Animation with Timer</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #ffc5b3;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: radial-gradient(#ffeded, #ffc7c7);
+    }
+
+    .textCon {
+      user-select: none;
+      width: 700px;
+      height: 60px;
+      margin: 50px auto;
+    }
+
+    .text {
+      font-size: 48px;
+    }
+
+    .heart {
+      width: 80px;
+      height: 80px;
+      background-color: #cc2a5d;
+      margin: 200px auto;
+      position: relative;
+      transform: rotate(45deg);
+      animation: heart 1s ease-in infinite;
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: #cc2a5d;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50%;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -50%;
+    }
+
+    .textCon .item {
+      position: absolute;
+      opacity: 0;
+      background-color: #cc2a5d;
+      transform: rotate(45deg);
+      animation: hearts 3s ease-in infinite;
+    }
+
+    .days-Label, .seconds, .seconds-Label, .days, .words {
+      text-align: center;
+      font-family: "Monda_bo", Georgia, sans-serif;
+    }
+
+    .days-Label {
+      font-size: 30px;
+    }
+
+    .seconds, .seconds-Label {
+      font-size: 32px;
+      margin-top: 10px;
+    }
+
+    .days {
+      font-size: 40px;
+    }
+
+    .words {
+      font-size: 50px;
+      font-family: 'Regular', cursive;
+    }
+
+    @keyframes heart {
+      0%, 100% { transform: scale(1) rotate(45deg); }
+      50% { transform: scale(1.2) rotate(45deg); }
+    }
+
+    @keyframes hearts {
+      0% { opacity: 0; transform: scale(0) translateY(0); }
+      100% { opacity: 1; transform: scale(1) translateY(-200px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+  <div class="textCon">
+    <div class="days-number"></div>
+    <div class="seconds"></div>
+  </div>
+
+  <script>
+    var arr = "2024-3-26".split(/[-]/);
+
+    function init() {
+      var box = document.getElementsByClassName('textCon')[0];
+      var width = box.offsetWidth;
+      var count = parseInt(width / 50 * 5);
+      for (var i = 0; i < count; i++) {
+        var size = parseInt(ran(60, 120) / 10);
+        var ele = document.createElement('div');
+        ele.classList.add('item');
+        ele.style.width = size + 'px';
+        ele.style.height = size + 'px';
+        ele.style.left = ran(0, 95) + '%';
+        ele.style.top = ran(20, 80) + '%';
+        ele.style.animationDelay = ran(0, 30) / 10 + 's';
+        box.appendChild(ele);
+      }
+    }
+
+    function ran(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function timer_start() {
+      var start_time = new Date(arr[0], arr[1] - 1, arr[2]);
+      var duration = (new Date() - start_time) / 1000;
+      var seconds = parseInt(duration % 60);
+      if (seconds < 10) seconds = "0" + seconds;
+      duration = parseInt(duration / 60);
+      var minutes = duration % 60;
+      if (minutes < 10) minutes = "0" + minutes;
+      duration = parseInt(duration / 60);
+      var hours = duration % 24;
+      if (hours < 10) hours = "0" + hours;
+      duration = parseInt(duration / 24);
+      var days = duration;
+
+      document.getElementsByClassName('days-number')[0].innerHTML = days + " days";
+      document.getElementsByClassName('seconds')[0].innerHTML = hours + "h " + minutes + "m " + seconds + "s";
+    }
+
+    window.setInterval(timer_start, 1000);
+    timer_start();
+    init();
+  </script>
+</body>
+</html>
