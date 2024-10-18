@@ -1,0 +1,13 @@
+body{
+	background-color:#FAEBD7;
+	margin-right:50;
+	margin-top:50;
+	margin-left:50;}
+
+h1{
+	color:#BC8F8F;
+	text-align:center;
+	transform:translate(50px, 100px) rotate(45deg);
+	position:relative;
+	z-index:-1;
+	text-shadow: 0 0 10px #40E0D0;}
