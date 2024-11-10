@@ -1,0 +1,421 @@
+<html>
+<head>
+<title> Individual Project - Home Page </title>
+<link rel=icon href=logo.png type=image/png>
+<meta charset = "UTF-8">
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+
+<!-- Home page -->
+
+<style>
+
+/* Apply a background image to the entire webpage */
+body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      color: violet; /* Text color for better contrast on light backgrounds */
+      font-family: Arial, sans-serif;
+      margin: 0;
+}
+
+/* Navigation bar */
+.top-nav{
+	position:fixed;
+	top: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #BA55D3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	z-index: 1000;
+        font-family:'Sour Gummy', 'Inconsolata', 'PT Sans Narrow', 'Open Sans';
+}
+
+/* Style the links inside the navigation bar */
+.top-nav a {
+	display: inline-block;
+	color: #FFE4C4;
+    	text-align: center;
+    	padding: 14px 16px;
+    	text-decoration: none;
+    	font-size: 20px;
+  }
+
+/* Change color on hover */
+.top-nav a: hover {
+    background-color: #DB7093;
+    color: black;
+  }
+
+/* Hamburger icon styling */
+.hamburger {
+      display: none; /* Hide hamburger by default */
+      cursor: pointer;
+      font-size: 30px;
+      color: #DB7093;
+  }
+
+/* The navigation items container */
+.nav-links {
+      display: flex;
+      justify-content: center;
+  }
+
+.nav-links a {
+      margin: 0 10px;
+  }
+
+/* When the viewport width is less than 768px, show the hamburger and hide the links */
+@media screen and (max-width: 768px) {
+	.hamburger {
+          display: block; 	/* Show hamburger on small screens */
+      }
+
+.nav-links {
+        display: none;		/* Hide links on small screens */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        background-color: violet;
+	position: absolute;
+	top:80px;
+	left: 0;
+	z-index: 999;
+      }
+
+      .nav-links a {
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* When the menu is open, show the links */
+      .nav-links.open {
+        display: flex;
+      }
+    }
+
+/* Additional styling for page content to avoid overlap */
+    .content {
+      padding-top: 120px; /* Space for the fixed menu */
+    }
+
+/* Container for the news slider */
+.news-slider {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      position: absolute;
+      top: 110px;
+      left: 30%;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+/* Wrapper for the news items */
+.news-items {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
+    }
+
+/* Individual news item */
+.news-item {
+      flex: 0 0 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+    }
+
+/* Image styling */
+.news-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+/* Navigation buttons */
+.slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #8B008B;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 10;
+    }
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+      .news-slider {
+        width: 80%; /* Full width for small screens */
+      }
+
+      .news-item {
+        font-size: 16px; /* Smaller font on smaller screens */
+        padding: 15px; /* Reduced padding for more space */
+      }
+
+      .slider-button {
+        font-size: 18px; /* Smaller button size */
+        padding: 8px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .news-item {
+        font-size: 14px; /* Even smaller font on very small screens */
+        padding: 10px;
+      }
+
+      .slider-button {
+        font-size: 16px;
+        padding: 6px;
+      }
+}
+
+/* About Us styling */
+.aboutus-text {
+      max-width: 700px auto;
+      margin: 500px auto;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #8B008B;
+      font-family:'Sour Gummy', 'Inconsolata', 'Open Sans';
+}
+
+/* History styling */
+.history-text {
+      max-width: 700px auto;
+      margin: -550px auto;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #C71585;
+      font-family:'Sour Gummy', 'Inconsolata', 'Open Sans';
+}
+
+/* Centered logo styling */
+.logo-container {
+      display: flex;
+      justify-content: center; /* Horizontal centering */
+      align-items: center; /* Vertical centering */
+      height: 100vh; /* Full viewport height to center vertically */
+}
+
+/* Teams styling */
+.teams-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+}
+
+/* CEO intro styling */
+.ceointro-text {
+      max-width: 700px auto;
+      margin: 500px auto;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #C71585;
+      font-family:'Sour Gummy', 'Inconsolata', 'Open Sans';
+}
+
+/* Marketing Manager intro styling */
+.marketingintro-text {
+      max-width: 700px auto;
+      margin: -400px auto;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #C71585;
+      font-family:'Sour Gummy', 'Inconsolata', 'Open Sans';
+}
+
+/* Event Coordinators intro styling */
+.eventintro-text {
+      max-width: 700px auto;
+      margin: 500px auto;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #C71585;
+      font-family:'Sour Gummy', 'Inconsolata', 'Open Sans';
+}
+
+/* Bottom slider container */
+.bottom-slider {
+    width: 100%;
+    margin: -100px auto;
+    overflow: hidden;
+    border: 1px solid;
+    background-color: #DDA0DD;
+    box-shadow: 0px 4px 8px #EE82EE;
+    position: relative;
+}
+
+.bottom-slider-item {
+    flex: 0 0 100%;
+    padding: 10px;
+    text-align: center;
+    color: #BA55D3;
+    font-size: 15px
+}
+
+
+</style>
+</head>
+<body>
+
+<img src=logo.png alt="Logo" align=left height=80 width=80 style="position: relative; z-index: 1100;">
+
+<!-- Top navigation menu --!>
+<div class = "top-nav">
+	<span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+  	<div class="nav-links">
+		<a href="#homepage"> Home Page </a>
+ 		<a href="#accommodations"> Accommodations </a>
+  		<a href="#toursandpackages"> Tours and Packages </a>
+  		<a href="#destination"> Destination </a>
+		<a href="#bookingsystem"> Booking System </a>
+		<a href="#contactus"> Contact Us </a>
+	</div>
+</div>
+
+<a href="https://www.theicecreambar.com.my/" target="_blank">>
+<img src="pagebanner.jpg" alt="Page Banner" width=200 height=370 align=left style="position: absolute; top:130px; left:10px;">
+</a>
+
+<script>
+  // Function to toggle the visibility of the navigation links when hamburger is clicked
+  function toggleMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('open');
+  }
+</script>
+
+<!-- News Slider -->
+<div class="news-slider">
+    <button class="slider-button left" onclick="prevSlide()">&#10094;</button>
+    <button class="slider-button right" onclick="nextSlide()">&#10095;</button>
+    <div class="news-items" id="newsItems">
+      <div class="news-item">
+        <img src="latestnews.png" alt="News 1">
+      </div>
+      <div class="news-item">
+        <img src="latestnewssydney.png" alt="News 2">
+      </div>
+      <div class="news-item">
+        <img src="latestnewsvictoria.png" alt="News 3">
+      </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript for slider functionality
+    let currentIndex = 0;
+    const newsItems = document.getElementById('newsItems');
+    const totalItems = document.querySelectorAll('.news-item').length;
+
+    function updateSlide() {
+      // Calculate the translation value for the slider
+      const translateX = -currentIndex * 100 + '%';
+      newsItems.style.transform = `translateX(${translateX})`;
+    }
+
+    function nextSlide() {
+      // Move to the next slide, loop back to the first if at the end
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateSlide();
+    }
+
+    function prevSlide() {
+      // Move to the previous slide, loop to the last if at the beginning
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      updateSlide();
+    }
+</script>
+
+<br><br><br><br><br>
+
+<!-- About Us -->
+<div class="aboutus-text">
+    <p> <b>About Us</b> <br> Welcome to Dream Come True Travel, where we turn your travel dreams into unforgettable journeys! Whether you’re seeking an exotic getaway, a cultural adventure, or a relaxing escape, our dedicated team curates personalized itineraries to suit your style and preferences. With a focus on exceptional service and unique experiences, Dream Come True Travel helps you explore the world with ease, excitement, and peace of mind. Let us bring your travel dreams to life! </p>
+</div>
+
+<div class="logo-container">
+	<img src=logo.png alt="Logo" height=500 width=500 style="z-index: 500; margin-top: -1000px;">
+</div>
+
+<!-- History -->
+<div class="history-text">
+    <p> <b>History</b> <br> Dream Come True Travel began as a vision shared by two avid travelers and friends who believed in the transformative power of travel. Founded in 2010, the company started as a small, family-owned business dedicated to helping friends and neighbors plan dream vacations. With a passion for discovering hidden gems and crafting seamless travel experiences, they quickly gained a loyal following.
+
+<br><br>
+
+As word spread, Dream Come True Travel grew, expanding its network of trusted global partners and adding a team of travel experts specializing in destinations worldwide. Over the years, they have adapted to changing travel trends, introducing sustainable tourism options, immersive cultural experiences, and custom itineraries that reflect each client’s unique style. Today, Dream Come True Travel continues to prioritize personalized service and memorable adventures, fulfilling its mission to make travel dreams come true for clients around the world. </p>
+</div>
+
+<div class="logo-container">
+	<img src=teams.png alt="Teams" height=400 width=700 style="z-index: 500; margin-top: 1200px; padding: 20px;">
+</div>
+
+<p align=center style="color: black; font-family:'Sour Gummy', 'Inconsolata', 'PT Sans Narrow', 'Open Sans';"><b> Team/Staff </b></p>
+
+<p class="ceointro-text">
+<b> Abbie Song - CEO </b>
+<br>
+The CEO of Dream Come True Travel, Abbie Song, is a passionate traveler and visionary leader with over 15 years of experience in the travel industry. With a deep love for exploring new destinations and cultures, Abbie founded the company with the goal of creating personalized and unforgettable travel experiences for every client. Their commitment to excellence and customer satisfaction has been the driving force behind the company’s growth, earning Dream Come True Travel a reputation for outstanding service and innovative travel solutions. Abbie continues to lead the company with a focus on sustainability, adventure, and the joy of discovery.
+</p>
+
+<p class="marketingintro-text">
+<b> Goh Tse Thing - Marketing Manager </b>
+<br>
+The Marketing Manager at Dream Come True Travel, Goh Tse Thing, is a dynamic and creative professional with a passion for connecting people to unforgettable travel experiences. With a background in digital marketing and brand strategy, Tse Thing leads the company’s marketing efforts, from crafting compelling campaigns to building lasting relationships with clients and partners. Their innovative approach and deep understanding of the travel industry help position Dream Come True Travel as a leader in personalized tourism. Tse Thing is dedicated to showcasing the unique experiences the company offers while ensuring that every traveler’s journey begins with the perfect first impression.
+</p>
+
+<p class="eventintro-text">
+<b> Wong Qi En - Events Coordinator </b>
+<br>
+The Events Coordinator at Dream Come True Travel, Wong Qi En, is a highly organized and detail-oriented professional with a knack for creating unforgettable experiences. With a passion for event planning and a deep understanding of travel logistics, Qi En expertly manages everything from group tours to corporate retreats and destination weddings. Their commitment to flawless execution ensures that every event, large or small, runs smoothly, allowing clients to fully enjoy their special moments. Qi En works closely with clients to bring their vision to life, crafting events that exceed expectations and leave lasting memories.
+</p>
+
+<div class="bottom-slider">
+    <div class="bottom-slider-items" id="bottomSliderItems">
+        <div class="bottom-slider-item">
+            <p> WEBSITE BY: ABBIE SONG DCS2401001</p>
+        </div>
+    </div>
+</div>
+
+<!-- <h4 style="margin: 20px auto;"> WEBSITE BY: ABBIE SONG DCS2401001 </h4> -->
+
+</body>
+</html>
