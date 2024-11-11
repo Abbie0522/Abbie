@@ -45,14 +45,8 @@ body {
     	font-size: 20px;
   }
 
-/* Change color on hover */
-.top-nav a: hover {
-    background-color: #DB7093;
-    color: black;
-  }
-
-/* Hamburger icon styling */
-.hamburger {
+/* Icon styling */
+.icon {
       display: none; /* Hide hamburger by default */
       cursor: pointer;
       font-size: 30px;
@@ -69,9 +63,9 @@ body {
       margin: 0 10px;
   }
 
-/* When the viewport width is less than 768px, show the hamburger and hide the links */
+/* When the viewport width is less than 768px, show the icon and hide the links */
 @media screen and (max-width: 768px) {
-	.hamburger {
+	.icon {
           display: block; 	/* Show hamburger on small screens */
       }
 
@@ -206,7 +200,7 @@ body {
       text-align: center;
       color: #333;
       border-radius: 8px;
-      box-shadow: 0 4px 8px #C71585;
+      box-shadow: 0 4px 8px #191970;
 }
 
 /* Centered logo styling */
@@ -267,22 +261,22 @@ body {
 /* Bottom slider container */
 .bottom-slider {
     width: 100%;
-    margin: -100px auto;
+    bottom: 0;
+    margin: 0 auto;
     overflow: hidden;
     border: 1px solid;
     background-color: #DDA0DD;
     box-shadow: 0px 4px 8px #EE82EE;
-    position: relative;
+    position: fixed;
 }
 
 .bottom-slider-item {
     flex: 0 0 100%;
-    padding: 10px;
+    padding: 1px;
     text-align: center;
     color: #BA55D3;
-    font-size: 15px
+    font-size: 13px
 }
-
 
 </style>
 </head>
@@ -294,7 +288,7 @@ body {
 
 <!-- Top navigation menu --!>
 <div class = "top-nav">
-	<span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+	<span class="icon" onclick="toggleMenu()">&#9776;</span>
   	<div class="nav-links">
 		<a href="https://abbie0522.github.io/abbie/Project/Project%20-%20Home%20page.html"> Home Page </a>
  		<a href="#accommodations"> Accommodations </a>
@@ -310,7 +304,7 @@ body {
 </a>
 
 <script>
-  // Function to toggle the visibility of the navigation links when hamburger is clicked
+  // Function to toggle the visibility of the navigation links when icon is clicked
   function toggleMenu() {
     var navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('open');
@@ -411,7 +405,6 @@ The Events Coordinator at Dream Come True Travel, Wong Qi En, is a highly organi
     </div>
 </div>
 
-<!-- <h4 style="margin: 20px auto;"> WEBSITE BY: ABBIE SONG DCS2401001 </h4> -->
 
 </body>
 </html>
