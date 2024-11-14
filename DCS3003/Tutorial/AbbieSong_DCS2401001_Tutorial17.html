@@ -1,0 +1,128 @@
+<html>
+<head><title> Form - Text Input </title>
+<link rel=icon href=Floewr.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+<style>
+body {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+form {
+            background-color: powderblue;
+            color: #696969;
+            font-size: 160%;
+            text-align: center;
+            width: 60%;
+	    margin-top: 500px;
+	    height: 500px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+table {
+            margin: auto;
+	    margin-top: -390px;
+        }
+
+</style>
+
+<link rel="stylesheet" href="tutorial17external.css">
+
+</head>
+<body>
+
+
+<form>
+
+<table>
+<tr>
+<th colspan=2 bgcolor=white> Personal details: </th>
+</tr>
+
+<br>
+
+<tr>
+<td> First Name: </td>
+<td><input type=text name=fname size=40 maxlength=5></td>
+</tr>
+<br>
+
+<tr>
+<td> Last Name: </td>
+<td><input type=text name=lname size=40 maxlength=5></td>
+</tr>
+<br>
+
+<tr>
+<td> Gender: </td>
+<td>
+<input type= radio name= gender value= Male> Male
+<input type= radio name= gender value= Female> Female
+</td>
+</tr>
+<Br>
+
+<tr>
+<td> Choose your favorite subjects </td> <br>
+<td>
+<input type=checkbox name=fav_sub value=DCS2401001> DCS2401001 <br>
+<input type=checkbox name=fav_sub value=DCS2401002> DCS2401002 <br>
+<input type=checkbox name=fav_sub value=DCS2401003> DCS2401003 <br>
+</td>
+</tr>
+<br>
+
+<tr>
+<td> Address: </td>
+<td><textarea rows=4 cols=30 name=address></textarea></td>
+</tr>
+<br>
+
+<tr>
+<td> Date of birth: </td>
+<td><input type=date name=dob></td>
+</tr>
+<br>
+
+<tr>
+<td> Login password: </td>
+<td><input type = password name = loginpass></td>
+</tr>
+<br>
+
+<tr>
+<td> Course: </td>
+<td>
+<select>
+<option value="0"> List of Courses </option>
+<optgroup label="Diploma In Computer Science">
+<option value="DCS_S1"> Sem 1 </option>
+<option value="DCS_S2"> Sem 2 </option>
+<option value="DCS_S3"> Sem 3 </option>
+<option value="DCS_S4"> Sem 4 </option>
+<option value="DCS_S5"> Sem 5 </option>
+<option value="DCS_S6"> Sem 6 </option>
+</optgroup>
+
+<option value="DIB"> Diploma In Business </option>
+<option value="DAS"> Diploma In Airline Services </option>
+</select>
+</td>
+</tr>
+<br>
+
+<tr>
+<th colspan=2 align=center>
+<input type=submit value=Submit>
+<input type=submit value=Reset>
+</th>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

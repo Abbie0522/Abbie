@@ -1,0 +1,5 @@
+table tr td:first-child {
+	background-color: #FF7F50;
+    	font-weight: bold;
+    	padding: 8px;
+}
