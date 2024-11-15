@@ -1,0 +1,156 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Tutorial 18 </title>
+<style>
+body {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+form {
+            background-color: powderblue;
+            color: #696969;
+            font-size: 160%;
+            text-align: center;
+	    width: 500px;
+	    margin-top: 500px;
+	    height: 500px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+td textarea {
+	resize: vertical;
+	height: 50px;
+}
+
+td {
+	padding: 10px;
+	text-align: left;
+}
+
+table {
+            margin: auto;
+	    width: 100%;
+	    border-collapse: collapse;
+        }
+
+</style>
+</head>
+<center>
+<form>
+<h3 align=center> Room Reservations </style></h3>
+
+<table border=2>
+<table border=2>
+<tr>
+<td colspan=2 style="color: blue; text-align: left; border: none"><u> Personal details </u></td>
+</tr>
+<br>
+
+<tr>
+<td> Full Name: </td> <td> <input type=text name=fname> </td>
+<td> IC No.: </td> <td> <input type=text name=icno> </td>
+</tr>
+<br>
+
+<tr>
+<td> Email address: </td> <td> <input type=text name=address></textarea> </td>
+<td> Contact No.: </td> <td> <input type=text name=contact> </td>
+</tr>
+<br>
+</table>
+
+<table border=2 style="margin-top: -250px; width: 200px;">
+<tr>
+<td style="color: blue; text-align: left; border:none;"><u> Reservations </u></td>
+</tr>
+<br>
+
+<tr>
+<td> Number of Room (s): </td>
+<td>
+<select>
+<option value="0"> - Selection - </option>
+<option value="1"> 1 </option>
+<option value="2"> 2 </option>
+<option value="3"> 3 </option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td> Payment Method: </td>
+<input type=radio name=payment value=Cash> Cash
+<input type=radio name=payment value=TNG> TNG
+</td>
+</tr>
+<br>
+
+<tr>
+<td> Number of Adult (s): </td>
+<td>
+<select>
+<option value="0"> - Selection - </option>
+<option value="1"> 1 </option>
+<option value="2"> 2 </option>
+<option value="3"> 3 </option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td> Number of Children: </td>
+<td>
+<select>
+<option value="0"> - Selection - </option>
+<option value="1"> 1 </option>
+<option value="2"> 2 </option>
+<option value="3"> 3 </option>
+</select>
+</td>
+</tr>
+<br>
+
+<tr>
+<td> Check-in Date: </td> <td> <input type=date></td>
+</tr>
+<br>
+
+<tr>
+<td> Check-out Date: </td> <td> <input type=date> </td>
+</tr>
+<br>
+
+<tr>
+<td> Do you have any special requests? </td>
+<td> <textarea name=requests></textarea> </td>
+</tr>
+<br>
+
+<tr>
+<td> Room Preference: </td>
+<td>
+<input type=checkbox name=room value=Deluxe> Deluxe
+<input type=checkbox name=room value=Suite> Suite
+</td>
+</tr>
+<br>
+
+<tr style="border:none;">
+<td colspan=2 align=center>
+<input type=submit value=Submit>
+<input type=submit value=Reset>
+</td>
+</tr>
+</table>
+</table>
+
+</form>
+</center>
+</body>
+</html>
