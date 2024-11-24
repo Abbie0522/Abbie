@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual Project - Tours and Packages</title>
+<link rel="icon" href="logo.png" type="image/png">
+
+<!-- Tours and Packages -->
+<style>
+body {
+      	background-image: url('background.jpg');
+      	background-size: cover;
+      	background-repeat: no-repeat;
+      	background-attachment: fixed;
+      	background-position: center;
+      	color: white;
+      	font-family: 'Sour Gummy', 'Inconsolata', 'Open Sans';
+      	margin: 0;
+}
+
+/* Navigation bar */
+.top-nav{
+	position:fixed;
+	top: 0;
+	width: 100%;
+	height: 100px;
+	background-color: #BA55D3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	z-index: 1000;
+}
+
+/* Style the links inside the navigation bar */
+.top-nav a {
+	display: inline-block;
+	color: #FFE4C4;
+    	text-align: center;
+    	padding: 14px 16px;
+    	text-decoration: none;
+    	font-size: 20px;
+  }
+
+/* Icon styling */
+.icon {
+      display: none; /* Hide hamburger by default */
+      cursor: pointer;
+      font-size: 30px;
+      color: #DB7093;
+}
+
+.icon:hover {
+  color: #FFF8DC;
+}
+
+/* The navigation items container */
+.nav-links {
+      display: flex;
+      justify-content: center;
+  }
+
+.nav-links a {
+      margin: 0 10px;
+  }
+
+/* When the viewport width is less than 768px, show the icon and hide the links */
+@media screen and (max-width: 768px) {
+	.icon {
+          display: block; 	/* Show hamburger on small screens */
+      }
+
+.nav-links {
+        display: none;		/* Hide links on small screens */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        background-color: violet;
+	position: absolute;
+	top:80px;
+	left: 0;
+	z-index: 999;
+      }
+
+      .nav-links a {
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* When the menu is open, show the links */
+      .nav-links.open {
+        display: flex;
+      }
+    }
+
+h1 {
+  	overflow: hidden;
+       	white-space: nowrap;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+
+h1 span {
+	margin-top: 130px;
+	position: relative;
+	display: inline-block;
+	animation: bounce .3s ease infinite alternate;
+	font-family: 'Titan One', cursive;
+	font-size: 50px;
+	color: white;
+	text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC;
+        }
+
+@keyframes bounce {
+	100% {
+		top: -5px;
+                text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC;
+            }
+}
+
+* {
+      	box-sizing: border-box;
+      	font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    	h1 span {
+        	font-size: 40px;
+        	margin-top: 100px;
+    	}
+
+	.responsive-image {
+    		margin-top: 40px;
+    		display: block;
+    		margin-left: auto;
+    		margin-right: auto;
+    		width: 80%;
+    		max-width: 100%;
+    		height: auto;
+	}
+}
+
+/* base */
+.flip {
+      	position: relative;
+      	width: 400px;
+      	height: 350px;
+      	display: inline-block;
+      	margin-right: 2px;
+      	margin-bottom: 1em;
+      	transform-style: preserve-3d;
+      	transition: transform 0.5s;
+      	margin-bottom: 100px;
+}
+
+.flip > .front, .flip > .back {
+      	display: block;
+      	position: absolute;
+      	width: 100%;
+      	height: 100%;
+      	backface-visibility: hidden;
+}
+
+.flip > .front {
+      	transform: rotateY(0deg);
+      	background-size: cover !important;
+      	background-position: center !important;
+      	background: #313131;
+      	padding: 20px;
+      	color: white;
+      	border-radius: 10px;
+}
+
+.flip > .back {
+      	transform: rotateY(180deg);
+      	background: #8B008B;
+      	padding: 20px;
+      	color: white;
+      	border-radius: 10px;
+      	opacity: 0;
+      	transition: opacity 0.5s, transform 0.5s;
+      	line-height: 1.3;
+      	font-size: 17px;
+}
+
+.flip:hover > .front {
+      	transform: rotateY(180deg);
+}
+
+.flip:hover > .back {
+      	opacity: 1;
+      	transform: rotateY(0deg);
+}
+
+/* Vertical flip */
+.flip.flip-vertical > .front {
+      	transform: rotateX(0deg);
+}
+
+.flip.flip-vertical > .back {
+      	transform: rotateX(-180deg);
+}
+
+.flip.flip-vertical:hover > .front {
+      	transform: rotateX(180deg);
+}
+
+.flip.flip-vertical:hover > .back {
+      	opacity: 1;
+      	transform: rotateX(0deg);
+}
+
+.text-shadow {
+      	text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04),
+        4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04),
+        7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04),
+        0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04),
+        13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04),
+        16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04),
+        19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+    }
+
+.tours-text{
+	font-size: 40px;
+      	margin-top: 100px;
+      	text-align: center;
+      	color: #fcedd8;
+      	font-family: 'Niconne', cursive;
+      	font-weight: 500;
+      	text-shadow: 5px 0px 0px #eb452b, 
+                  8px 5px 0px #efa032, 
+                  11px 8px 0px #46b59b, 
+                  14px 11px 0px #017e7f, 
+                  17px 14px 0px #052939, 
+                  20px 17px 0px #c11a2b;
+}
+
+.bottom-slider {
+	width: 100%;
+	bottom: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #DDA0DD;
+	position: fixed;
+	z-index: 1000;
+}
+
+.bottom-slider-item {
+	flex: 0 0 100%;
+	padding: 1px;
+	text-align: center;
+	color: #BA55D3;
+	font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+
+<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html">
+<img src=logo.png alt="Logo" align=left height=80 width=80 style="position: fixed; z-index: 1100; margin-top: -20px; margin-left: 10px;">
+</a>
+
+<!-- Top navigation menu --!>
+<div class = "top-nav">
+	<span class="icon" onclick="toggleMenu()">&#9776;</span>
+  	<div class="nav-links">
+		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html"> Home Page </a>
+ 		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Accommodations.html"> Accommodations </a>
+  		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Tours and Packages.html"> Tours and Packages </a>
+  		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Destination.html"> Destination </a>
+		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Booking System.html"> Booking System </a>
+		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Contact us.html"> Contact Us </a>
+	</div>
+</div>
+
+<script>
+    // Function to toggle the visibility of the navigation links when icon is clicked
+    function toggleMenu() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('open');
+    }
+</script>
+
+<h1>
+    <span>OUR MOST POPULAR TOUR!</span>
+</h1>
+
+<img src="sydneytours.png" alt="Sydney Tours" style="margin-top: 40px; display: block; margin-left: auto; margin-right: auto;" class="responsive-image">
+
+<!-- horizontal -->
+<p class="tours-text"> Exclusive Tours </p>
+
+  <div class="flip">
+    <div class="front" style="background-image: url(sydneytours.png)">
+    </div>
+    <div class="back">
+      <h2> New South Wales - SYDNEY </h2>
+      <p> Sydney, the vibrant capital of New South Wales, is known for its iconic landmarks like the Sydney Opera House and Harbour Bridge. The city offers stunning beaches, lush parks, and a thriving cultural scene, making it a popular destination for tourists. With a mix of modern attractions and rich history, Sydney is a dynamic hub for both business and leisure. </p>
+    </div>
+  </div>
+  <div class="flip">
+    <div class="front" style="background-image: url(victoriatours.png)">
+    </div>
+    <div class="back">
+      <h2> Kingston - VICTORIA </h2>
+      <p> Kingston, located in Melbourne's southeastern suburbs, is a vibrant area known for its stunning beaches, including the popular Brighton Beach. The city offers a mix of family-friendly parks, shopping precincts, and rich cultural attractions, making it an ideal destination for both relaxation and recreation. With excellent public transport links, Kingston provides easy access to the nearby city while maintaining its coastal charm.</p>
+    </div>
+  </div>
+  <div class="flip">
+    <div class="front" style="background-image: url(queenslandtours.png)">
+    </div>
+    <div class="back">
+      <h2> Rockhamton - QUEENSLAND </h2>
+      <p> Rockhampton, known as the "Beef Capital of Australia," is a vibrant regional city in central Queensland. Situated along the Fitzroy River, it boasts a mix of rich history, cultural attractions, and a thriving agricultural industry. With its nearby national parks and relaxed atmosphere, Rockhampton offers visitors a unique blend of urban convenience and natural beauty. </p>
+    </div>
+  </div>
+
+  <br><br>
+
+<!-- vertical -->
+<p class="tours-text"> Travel Packages </p>
+
+  <div class="flip flip-vertical">
+    <div class="front" style="background-image: url(sydneypackages.png)">
+      <h1 class="text-shadow"> SYDNEY </h1>
+    </div>
+    <div class="back">
+      <p> The New South Wales - Sydney tour package offers travelers a chance to experience Sydney’s top attractions, including the iconic Sydney Opera House, Harbour Bridge, and the beautiful Bondi Beach. This package often includes guided city tours, harbor cruises, and visits to famous beaches and coastal walks, giving a comprehensive view of Sydney’s culture, history, and natural beauty. With options for family-friendly activities, luxury experiences, and adventure tours, it provides a variety of ways to explore this dynamic city. </p>
+    </div>
+  </div>
+  <div class="flip flip-vertical">
+    <div class="front" style="background-image: url(victoriapackages.png)">
+      <h1 class="text-shadow"> VICTORIA </h1>
+    </div>
+    <div class="back">
+      <p> The Kingston - Victoria tour package offers a relaxed exploration of Melbourne’s southeastern suburbs, including scenic coastal spots like Brighton Beach with its colorful bathing boxes. Visitors can enjoy leisurely visits to local parks, beachside cafes, and shopping districts, along with family-friendly outdoor activities. This package is perfect for those seeking a mix of coastal charm and suburban comfort with easy access to Melbourne's main attractions. </p>
+    </div>
+  </div>
+  <div class="flip flip-vertical">
+    <div class="front" style="background-image: url(queenslandpackages.png)">
+      <h1 class="text-shadow"> QUEENSLAND </h1>
+    </div>
+    <div class="back">
+      <p> The Rockhampton - Queensland tour package provides an authentic experience of Australia’s “Beef Capital,” highlighting its unique heritage, cultural sites, and natural landscapes. Visitors can explore the historic architecture of the city, take guided tours of local cattle stations, and enjoy nearby attractions like the Capricorn Caves and Mount Archer National Park. This package is ideal for travelers interested in a mix of history, outdoor adventure, and Queensland’s scenic countryside. </p>
+    </div>
+  </div>
+
+<div class="bottom-slider">
+    <div class="bottom-slider-items" id="bottomSliderItems">
+        <div class="bottom-slider-item">
+            <p> WEBSITE BY: ABBIE SONG DCS2401001</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

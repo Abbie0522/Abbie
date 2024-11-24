@@ -1,0 +1,1280 @@
+<html>
+<head>
+<title> Individual Project - Destination </title>
+<link rel=icon href=logo.png type=image/png>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+
+<!-- Destination -->
+
+<style>
+body {
+	background-image: url('background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	color: white;
+	font-family: 'Sour Gummy', 'Inconsolata', 'Open Sans';
+	margin: 0;
+}
+
+.top-nav {
+	position: fixed;
+       	top: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #BA55D3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	z-index: 1000;
+}
+
+.top-nav a {
+	display: inline-block;
+	color: #FFE4C4;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.icon {
+	display: none;
+	cursor: pointer;
+	font-size: 30px;
+	color: #DB7093;
+}
+
+.icon:hover {
+  color: #FFF8DC;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: center;
+}
+
+.nav-links a {
+	margin: 0 10px;
+}
+
+@media screen and (max-width: 768px) {
+	.icon {
+		display: block;
+	}
+
+	.nav-links {
+               	display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: violet;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                z-index: 999;
+	}
+
+	.nav-links a {
+                padding: 10px;
+                text-align: center;
+	}
+
+	.nav-links.open {
+                display: flex;
+	}
+}
+
+.content {
+	padding-top: 120px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+h1 {
+  	margin:0;
+  	position:absolute;
+  	left:50%;
+  	top:170px;
+  	transform: translate(-50%, -50%);
+  	font-family: 'Roboto Slab', serif;
+  	text-transform: uppercase;
+  	color:#8B008B;
+  	font-size: 40px;
+  	white-space: nowrap;
+  	margin-left: -260px;
+}
+
+h1:before {
+  	content: attr(data-text);
+  	position:absolute;
+  	top:0;
+  	left:0;
+  	transform-origin: bottom;
+  	transform: rotateX(180deg);
+  	line-height: 1em;
+  	background: linear-gradient(0deg, #8B008B 0, transparent 50%);
+  	-webkit-background-clip: text;
+  	color: transparent;
+  	opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    	h1 {
+      		top: 170px;
+      		font-size: 5vw;
+		margin-left: 0%;
+    	}
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:700);
+
+.bondicontainer {
+  	max-width: 90%;
+  	margin: 0 auto;
+  	margin-top: 150px;
+  	padding: 20px;
+}
+
+@media (max-width: 768px) {
+    	.bondicontainer {
+      		margin-top: 130px;
+		max-width: 90%;
+    	}
+
+
+    	.bondi_ctrl {
+      		font-size: 0.8rem;
+      		padding: 12px;
+    	}
+
+    	.bondi_ctrl:before {
+      		margin-right: 15px;
+      		width: 8px;
+    	}
+
+    	.bondibeach p {
+      		font-size: 0.7rem;
+      		padding: 8px;
+    	}
+}
+
+.bluecontainer {
+  	max-width: 80%;
+  	margin: 0 auto;
+  	margin-top: -220px;
+  	padding: 20px;
+}
+
+.rockscontainer {
+  	max-width: 70%;
+  	margin: 0 auto;
+  	margin-top: -220px;
+  	padding: 20px;
+}
+
+.darlingcontainer {
+  	max-width: 60%;
+  	margin: 0 auto;
+  	margin-top: -220px;
+  	padding: 20px;
+  	z-index: 100;
+  	position: relative;
+}
+
+.chelseacontainer {
+  	max-width: 60%;
+  	margin: 0 auto;
+	z-index: 100;
+  	margin-top: 30px;
+  	padding: 20px;
+}
+
+.edithvalecontainer {
+  	max-width: 70%;
+  	margin: 0 auto;
+	z-index: 100;
+  	margin-top: -220px;
+  	padding: 20px;
+}
+
+.mentonecontainer {
+  	max-width: 80%;
+  	margin: 0 auto;
+	z-index: 100;
+  	margin-top: -220px;
+  	padding: 20px;
+}
+
+.mordialloccontainer {
+  	max-width: 90%;
+  	margin: 0 auto;
+	z-index: 100;
+  	margin-top: -220px;
+  	padding: 20px;
+}
+
+.botaniccontainer {
+  	max-width: 90%;
+  	margin: 0 auto;
+  	margin-top: 60px;
+  	padding: 20px;
+}
+
+.capriconcontainer {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: -220px;
+  padding: 20px;
+}
+
+.artgallerycontainer {
+  max-width: 70%;
+  margin: 0 auto;
+  margin-top: -220px;
+  padding: 20px;
+}
+
+.southseacontainer {
+  max-width: 60%;
+  margin: 0 auto;
+  margin-top: -220px;
+  padding: 20px;
+}
+
+.acc {
+  margin: 90px 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.acc li {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bondi_ctrl {
+  background: linear-gradient(to top, #F0E68C, #F08080);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.blue_ctrl {
+  background: linear-gradient(to bottom, #DA70D6, #F08080);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.rocks_ctrl {
+  background: linear-gradient(to top, #98FB98, #F08080);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.darling_ctrl {
+  background: linear-gradient(to bottom, #87CEFA, #F08080);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.chelsea_ctrl {
+  background: linear-gradient(to right, #DA70D6, #FFFF00);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.edithvale_ctrl {
+  background: linear-gradient(to left, #87CEFA, #FFFF00);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.mentone_ctrl {
+  background: linear-gradient(to right, #FF69B4, #FFFF00);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.mordialloc_ctrl {
+  background: linear-gradient(to left, #32CD32, #FFFF00);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.botanic_ctrl {
+  background: linear-gradient(to top, #8B008B, #87CEFA);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.capricon_ctrl {
+  background: linear-gradient(to bottom, #FFB6C1, #87CEFA);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.gallery_ctrl {
+  background: linear-gradient(to top, #008080, #87CEFA);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.south_ctrl {
+  background: linear-gradient(to bottom, #C71585, #87CEFA);
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.bondi_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.blue_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.rocks_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.darling_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.chelsea_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.edithvale_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.mentone_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.mordialloc_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.botanic_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.capricon_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.gallery_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.south_ctrl:before{
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 14px;
+}
+
+.bondi_ctrl:after, .blue_ctrl:after, .rocks_ctrl:after, .darling_ctrl:after, .chelsea_ctrl:after, .edithvale_ctrl:after, .mentone_ctrl:after, .mordialloc_ctrl:after, .botanic_ctrl:after, .capricon_ctrl:after, .gallery_ctrl:after, .south_ctrl:after {
+  background: black;
+  content: '';
+  height: 2px;
+  margin-right: 37px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 14px;
+}
+
+.bondi_ctrl.active:before {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.bondi_ctrl.active h2, .bondi_ctrl:focus h2 {
+  position: relative;
+}
+
+.bondibeach {
+  background: url('bondibeach.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.bluemountains {
+  background: url('bluemountains.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.therocks {
+  background: url('therocks.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.darlingharbour {
+  background: url('darlingharbour.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.chelseabeach {
+  background: url('chelseabeach.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.edithvale {
+  background: url('edithvale.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.mentone {
+  background: url('mentone.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.mordialloc {
+  background: url('mordialloc.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+
+.botanic {
+  background: url('botanic.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.capricon {
+  background: url('capricon.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.gallery {
+  background: url('gallery.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.south {
+  background: url('south.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .acc_panel {
+    padding: 10px;
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .acc_ctrl {
+    font-size: 16px; /* Make control buttons smaller */
+  }
+}
+
+.bottom-slider {
+	width: 100%;
+	bottom: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #DDA0DD;
+	position: fixed;
+	left: 0;
+	z-index: 1000;
+}
+
+
+.bottom-slider-item {
+	flex: 0 0 100%;
+	padding: 1px;
+	text-align: center;
+	color: #BA55D3;
+	font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+
+<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html">
+<img src=logo.png alt="Logo" align=left height=80 width=80 style="position: fixed; z-index: 1100; margin-top:-130px; margin-left: 10px;">
+</a>
+
+<!-- Top navigation menu -->
+<div class="top-nav">
+    <span class="icon" onclick="toggleMenu()">&#9776;</span>
+    <div class="nav-links">
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html"> Home Page </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Accommodations.html"> Accommodations </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Tours and Packages.html"> Tours and Packages </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Destination.html"> Destination </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Booking System.html"> Booking System </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Contact us.html"> Contact Us </a>
+    </div>
+</div>
+
+<script>
+    // Function to toggle the visibility of the navigation links when icon is clicked
+    function toggleMenu() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('open');
+    }
+</script>
+
+<h1 data-text="NEW SOUTH WALES - SYDNEY">
+NEW SOUTH WALES - SYDNEY
+</h1>
+
+<div class="bondicontainer">
+  <ul class="acc">
+    <li>
+      <button class="bondi_ctrl"> Bondi Beach </button>
+      <div class="bondibeach">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(189, 183, 107, 0.5);"> <b><u> Overview: </u></b><br> Bondi Beach is one of Australia’s most famous beaches, celebrated for its golden sands, turquoise waves, and vibrant coastal lifestyle. It’s a favorite spot for both locals and tourists. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> The Bondi to Coogee Coastal Walk: </b> A 6 km scenic trail offering breathtaking ocean views and access to smaller beaches and coves. <br><br>
+
+<b> Surfing and swimming: </b> Known for its surf-friendly waves, Bondi offers surf schools for beginners and a designated swimming area. <br><br>
+
+<b> Dining and shopping: </b> The Bondi area is full of trendy cafes, beachside bars, and boutique shops.<br><br>
+
+<b><u> Best Time to Visit: </b></u> Early mornings for sunrise walks or evenings for the lively beachside dining scene.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="bluecontainer">
+  <ul class="acc">
+    <li>
+      <button class="blue_ctrl"> Blue Mountains </button>
+      <div class="bluemountains">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(0, 128, 0, 0.5);"> <b><u> Overview: </u></b><br> A UNESCO World Heritage Site, the Blue Mountains are just a two-hour drive from Sydney and feature dramatic landscapes, dense eucalyptus forests, and charming mountain villages. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> The Three Sisters: </b> An iconic rock formation with deep cultural significance to the Aboriginal people, best viewed from Echo Point Lookout. <br><br>
+
+<b> Scenic World: </b> Home to attractions like the Scenic Railway, Scenic Skyway, and Scenic Cableway, offering stunning views of the rainforest and valleys. <br><br>
+
+<b> Hiking Trails: </b> Popular walks include the Wentworth Falls track and Grand Canyon loop. <br><br>
+
+<b><u> Best Time to Visit: </b></u> Spring and autumn, when the weather is mild, and the scenery is lush.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="rockscontainer">
+  <ul class="acc">
+    <li>
+      <button class="rocks_ctrl"> The Rocks </button>
+      <div class="therocks">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(70, 130, 180, 0.5);"> <b><u> Overview: </u></b><br> As Sydney’s oldest neighborhood, The Rocks is a historic district filled with colonial-era buildings, cobblestone streets, and a lively atmosphere. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> The Rocks Markets: </b> Held on weekends, offering artisanal goods, unique souvenirs, and local food. <br><br>
+
+<b> Historic pubs and restaurants: </b> Visit Australia’s oldest pub, Fortune of War, or dine with harbor views. <br><br>
+
+<b> The Rocks Discovery Museum: </b> A small, free museum showcasing the area’s rich history, from Aboriginal heritage to colonial times. <br><br>
+
+<b><u> Best Time to Visit: </b></u> Weekends, when the markets are in full swing and the streets come alive with performers and tourists.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="darlingcontainer">
+  <ul class="acc">
+    <li>
+      <button class="darling_ctrl"> Darling Harbour </button>
+      <div class="darlingharbour">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(147, 112, 219, 0.5);"> <b><u> Overview: </u></b><br> Darling Harbour is a bustling waterfront precinct that’s a hub of entertainment, dining, and family-friendly attractions. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> SEA LIFE Sydney Aquarium: </b> Home to a variety of marine creatures, including dugongs and sharks. <br><br>
+
+<b> Wild Life Sydney Zoo: </b> Offers close encounters with kangaroos, koalas, and other native Australian animals. <br><br>
+
+<b> Harbourside Shopping Centre: </b> A mix of retail outlets, restaurants, and entertainment options. <br><br>
+
+<b><u> Best Time to Visit: </b></u> Evenings for its lively atmosphere, light displays, and harborside dining.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+    $(function() {
+        $('.bondi_ctrl').on('click', function(e) {
+            e.preventDefault();
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active').next().slideUp(300);
+            } else {
+                $('.bondi_ctrl.active').removeClass('active').next().slideUp(300);
+                $(this).addClass('active').next().slideDown(300);
+            }
+        });
+
+	$('.blue_ctrl').on('click', function(e) {
+            e.preventDefault();
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active').next().slideUp(300);
+            } else {
+                $('.blue_ctrl.active').removeClass('active').next().slideUp(300);
+                $(this).addClass('active').next().slideDown(300);
+            }
+        });
+
+	$('.rocks_ctrl').on('click', function(e) {
+            e.preventDefault();
+	    console.log("Rocks button clicked!");
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active').next().slideUp(300);
+            } else {
+                $('.rocks_ctrl.active').removeClass('active').next().slideUp(300);
+                $(this).addClass('active').next().slideDown(300);
+            }
+        });
+
+	$('.darling_ctrl').on('click', function(e) {
+    	e.preventDefault();
+    	if ($(this).hasClass('active')) {
+            $(this).removeClass('active').next().slideUp(300);
+    	} else {
+        $('.darling_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+    	    }
+	});
+});
+</script>
+
+<h1 data-text="KINGSTON - VICTORIA" style="margin-top: 500px;" >
+KINGSTON - VICTORIA
+</h1>
+
+<div class="chelseacontainer">
+  <ul class="acc">
+    <li>
+      <button class="chelsea_ctrl"> Chelsea Beach </button>
+      <div class="chelseabeach">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(218, 112, 214, 0.5);"> <b><u> Overview: </u></b><br> Chelsea Beach is a pristine, family-friendly destination known for its crystal-clear waters, golden sands, and relaxed atmosphere. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> Ideal for swimming: </b> Its shallow waters and gentle waves, making it perfect for families with young children. <br><br>
+
+<b> Features picnic spots and shaded areas: </b> It provides a great setting for a day by the water. <br><br>
+
+<b> A walking trail runs along the beach: </b> This offering scenic views of the coastline. <br><br>
+
+<b><u> Best Time to Visit: </b></u> Early mornings or late afternoons are ideal for a quieter experience.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="edithvalecontainer">
+  <ul class="acc">
+    <li>
+      <button class="edithvale_ctrl"> The Edithvale-Seaford Wetlands </button>
+      <div class="edithvale">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(135, 206, 250, 0.5);"> <b><u> Overview: </u></b><br> This internationally recognized Ramsar wetland is a haven for wildlife enthusiasts and nature lovers. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> Home to over 190 bird species: </b> Including migratory birds and rare species like the Australasian Bittern. <br><br>
+
+<b> Educational walking paths: </b> Offers educational walking paths with interpretive signs about the area's ecology and history. <br><br>
+
+<b> Spot for photography: </b> A great spot for photography and quiet reflection amidst nature. <br><br>
+
+<b><u> Best Time to Visit: </b></u> Spring (September to November), migratory birds arrive, and the wetlands are lush and vibrant.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="mentonecontainer">
+  <ul class="acc">
+    <li>
+      <button class="mentone_ctrl"> Mentone Railway Station Gallery </button>
+      <div class="mentone">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(255, 105, 180, 0.5);"> <b><u> Overview: </u></b><br> Situated in a historic railway station, this gallery celebrates local art and culture with rotating exhibitions. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> A variety of artwork: </b> Showcases a variety of artwork, including paintings, sculptures, and photography. <br><br>
+
+<b> A quiet afternoon: </b> Offers a quaint and creative atmosphere, perfect for a quiet afternoon. <br><br>
+
+<b> Station's heritage architecture: </b> The station's heritage architecture adds a nostalgic charm to your visit. <br><br>
+
+<b><u> Best Time to Visit: </b></u> Late mornings or afternoons provide the perfect window for exploring art before lunch or coffee nearby.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="mordialloccontainer">
+  <ul class="acc">
+    <li>
+      <button class="mordialloc_ctrl"> Mordialloc Village </button>
+      <div class="mordialloc">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(107, 142, 35, 0.5);"> <b><u> Overview: </u></b><br> Mordialloc Village is a bustling seaside hub filled with boutique stores, cafes, and vibrant community events. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> Coastal cafes and restaurants: </b> It serve fresh seafood and international cuisines. <br><br>
+
+<b> Boutique stores: </b> Unique shopping experiences in boutique stores featuring handmade and local goods. <br><br>
+
+<b> Regular place: </b> Regular farmers markets, live music events, and seasonal festivals add vibrancy to the area. <br><br>
+
+<b><u> Best Time to Visit: </b></u> Weekends are great for enjoying the markets and lively village atmosphere.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+    $(function() {
+        $('.chelsea_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.chelsea_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+
+	$('.edithvale_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.edithvale_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+
+	$('.mentone_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.mentone_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+
+	$('.mordialloc_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.mordialloc_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+
+});
+</script>
+
+<h1 data-text="ROCKHAMPTON - QUEENSLAND" style="margin-top: 1000px;">
+ROCKHAMPTON - QUEENSLAND
+</h1>
+
+<div class="botaniccontainer">
+  <ul class="acc">
+    <li>
+      <button class="botanic_ctrl"> Rockhampton Botanic Gardens & Zoo </button>
+      <div class="botanic">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(0, 0, 139, 0.5);"> <b><u> Overview: </u></b><br> The Rockhampton Botanic Gardens & Zoo is a stunning 18-hectare site offering both natural beauty and a chance to encounter native Australian wildlife. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> Over 60 species of plants: </b> A well-maintained array of gardens with over 60 species of plants. <br><br>
+
+<b> Zoo section: </b> The zoo section with native Australian animals, including a walkthrough aviary. <br><br>
+
+<b> The Heritage Village: </b> Part of the gardens, featuring preserved historical buildings. <br><br>
+
+<b><u> Best Time to Visit: </b></u> March to October, when the weather is milder. During this period, the gardens and zoo are most enjoyable for walking, and the animals are more active.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="capriconcontainer">
+  <ul class="acc">
+    <li>
+      <button class="capricon_ctrl"> The Capricorn Caves </button>
+      <div class="capricon">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(255, 182, 193, 0.5);"> <b><u> Overview: </u></b><br> The caves offer guided tours showcasing incredible stalactite and stalagmite formations, as well as a chance to learn about the area’s geological history. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> Natural formations: </b> Scenic and accessible caves with impressive natural formations. <br><br>
+
+<b> Wildlife sightings: </b> Wildlife sightings like bats that inhabit the caves, especially during warmer months. <br><br>
+
+<b> Beautiful landscape: </b> A beautiful landscape surrounding the caves, with opportunities for photography. <br><br>
+
+<b><u> Best Time to Visit: </b></u> April to October is the best time to visit, as the weather is cooler and more comfortable for cave exploration.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="artgallerycontainer">
+  <ul class="acc">
+    <li>
+      <button class="gallery_ctrl"> Rockhampton Art Gallery </button>
+      <div class="gallery">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(210, 105, 30, 0.5);"> <b><u> Overview: </u></b><br> The Rockhampton Art Gallery is an essential stop for art lovers, showcasing both contemporary and historical works. It is known for its exhibitions of Indigenous art, as well as its wide-ranging collection of national and regional pieces. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> Collection of artworks: </b> A diverse collection of artworks, including pieces from local artists and well-known national and international figures. <br><br>
+
+<b> Local culture and heritage: </b> Regular exhibitions that feature local culture and heritage. <br><br>
+
+<b> Art workshops and community activities: </b> The opportunity to participate in art workshops and community activities. <br><br>
+
+<b><u> Best Time to Visit: </b></u> The art gallery’s exhibitions change regularly, so checking their event calendar beforehand can help time your visit to see a special exhibit.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="southseacontainer">
+  <ul class="acc">
+    <li>
+      <button class="south_ctrl"> South Sea Island </button>
+      <div class="south">
+        <p style="padding: 15px; color: white; font-size: 15px; background-color: rgba(192, 192, 192, 0.5);"> <b><u> Overview: </u></b><br> South Sea Island is a small, private island located off the coast of Rockhampton, known for its pristine beaches and crystal-clear waters. <br><br> <b><u> Highlights: </b></u><br>
+
+<b> Coral reefs: </b> Gorgeous coral reefs for snorkeling and diving. <br><br>
+
+<b> Water-based activities: </b> A variety of water-based activities such as paddleboarding, kayaking, and fishing. <br><br>
+
+<b> Scenic walks: </b> Scenic walks and the opportunity to relax in a tranquil island environment. <br><br>
+
+<b><u> Best Time to Visit: </b></u> May to October is the best time to visit South Sea Island, as it coincides with the dry season in Queensland. During this period, the weather is pleasant for outdoor activities, and the waters are calm, perfect for snorkeling and diving.
+	</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+    $(function() {
+        $('.botanic_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.botanic_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+
+	$('.capricon_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.capricon_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+
+	$('.gallery_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.gallery_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+
+	$('.south_ctrl').on('click', function(e) {
+    		e.preventDefault();
+    		if ($(this).hasClass('active')) {
+        	   $(this).removeClass('active').next().slideUp(300);
+    		} else {
+	$('.south_ctrl.active').removeClass('active').next().slideUp(300);
+        $(this).addClass('active').next().slideDown(300);
+   		 }
+	});
+});
+
+</script>
+
+<div class="bottom-slider">
+    <div class="bottom-slider-items" id="bottomSliderItems">
+        <div class="bottom-slider-item">
+            <p> WEBSITE BY: ABBIE SONG DCS2401001</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

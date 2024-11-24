@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Individual Project </title>
+<link rel=icon href=logo.png type=image/png>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Contact Us -->
+<style>
+body {
+	background-image: url('background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	color: white;
+	font-family: 'Sour Gummy', 'Inconsolata', 'Open Sans';
+	margin: 0;
+}
+
+.top-nav {
+	position: fixed;
+       	top: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #BA55D3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	z-index: 1000;
+}
+
+.top-nav a {
+	display: inline-block;
+	color: #FFE4C4;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.icon {
+	display: none;
+	cursor: pointer;
+	font-size: 30px;
+	color: #DB7093;
+}
+
+.icon:hover {
+  color: #FFF8DC;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: center;
+}
+
+.nav-links a {
+	margin: 0 10px;
+}
+
+@media screen and (max-width: 768px) {
+	.icon {
+		display: block;
+	}
+
+	.nav-links {
+               	display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: violet;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                z-index: 999;
+	}
+
+	.nav-links a {
+                padding: 10px;
+                text-align: center;
+	}
+
+	.nav-links.open {
+                display: flex;
+	}
+}
+
+.content {
+	padding-top: 120px;
+}
+
+.contactshake {
+  position: absolute;
+  top: 18%;
+  left: 32%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Source Code Pro', monospace;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 65px;
+  font-weight: 900;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  background-size: 120% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -ms-background-clip: text;
+  -ms-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-image: linear-gradient(45deg, 
+                    #6495ED, 
+                    #9370DB,
+                    #FF0000,
+                    #00FA9A);
+  animation: .8s shake infinite alternate;
+}
+
+@media (max-width: 768px) {
+  .contactshake {
+    font-size: 7vw;
+    letter-spacing: 0.3em;
+    top: 25%;
+    left: 19%;
+  }
+}
+
+.timeshake {
+  position: absolute;
+  top: 18%;
+  left: 14%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Source Code Pro', monospace;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 70px;
+  font-weight: 900;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  background-size: 120% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -ms-background-clip: text;
+  -ms-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-image: linear-gradient(45deg, 
+                    #FFC0CB, 
+                    #FAEBD7,
+                    #FFFF00,
+                    #F08080);
+  animation: .8s shake infinite alternate;
+}
+
+@media (max-width: 768px) {
+  .timeshake {
+    font-size: 7vw;
+    letter-spacing: 0.3em;
+    top: 19%;
+    left: 26%;
+  }
+}
+
+@keyframes shake {
+  0% { transform: skewX(-15deg); }
+  5% { transform: skewX(15deg); }
+  10% { transform: skewX(-15deg); }
+  15% { transform: skewX(15deg); }
+  20% { transform: skewX(0deg); }
+  100% { transform: skewX(0deg); }  
+}
+
+ul {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%);
+  transform: translateX(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: #404040;
+  margin: 0 30px;
+  transition: 0.5s;
+}
+
+ul li a span {
+  position: absolute;
+  transition: transform 0.5s;
+}
+
+ul li a span:nth-child(1),
+ul li a span:nth-child(3) {
+  width: 100%;
+  height: 3px;
+  background: #404040;
+}
+
+ul li a span:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform-origin: right;
+}
+
+ul li a:hover span:nth-child(1) {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+ul li a span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+}
+
+ul li a:hover span:nth-child(3) {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+ul li a span:nth-child(2),
+ul li a span:nth-child(4) {
+  width: 3px;
+  height: 100%;
+  background: #404040;
+}
+
+ul li a span:nth-child(2) {
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transform-origin: bottom;
+}
+
+ul li a:hover span:nth-child(2) {
+  transform: scale(1);
+  transform-origin: top;
+}
+
+ul li a span:nth-child(4) {
+  top: 0;
+  right: 0;
+  transform: scale(0);
+  transform-origin: top;
+}
+
+ul li a:hover span:nth-child(4) {
+  transform: scale(1);
+  transform-origin: bottom;
+}
+
+.facebook:hover {
+  color: #3b5998;
+}
+
+.facebook:hover span {
+  background: #3b5998;
+}
+
+.instagram:hover {
+  color: #c32aa3;
+}
+
+.instagram:hover span {
+  background: #c32aa3;
+}
+
+.google:hover {
+  color: #FFF8DC;
+}
+
+.google:hover span {
+  background: #FFF8DC;
+}
+
+@media (max-width: 768px) {
+  .shake {
+    top: 20%;
+    left: 25%;
+    transform: translateX(-50%); /* Center it horizontally */
+    font-size: 60px;
+    letter-spacing: 4px;
+  }
+}
+
+.cardbd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card{
+  width: 90%;
+  padding: 30px;
+  background: linear-gradient(to bottom, #DDA0DD, #FF69B4);
+  margin: auto;
+  transition: .3s ease;
+  box-shadow: 0 1px 1px rgba(0,0,0,.3);
+  text-align: center;
+  margin-top: 20px;
+  
+  &:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,.8);
+    transform: translateY(-10px) scale(1.02);
+  	.entry-title{
+			background-position: -100% 0;
+		} 
+  }
+}
+
+.entry-title{
+  background: linear-gradient(to right, #DDA0DD 50%, rgba(72,61,139,1.0) 50%);
+  background-size: 200%;
+  background-position: 0 0;
+  display: inline;
+  transition: .5s ease-in-out;
+  font-family: raleway, arial, sans-serif;
+  text-transform: uppercase;
+}
+
+span{
+  display: block;
+  margin-top: 10px;
+  font-family: raleway, arial, sans-serif;
+  font-weight: 700;
+  color: #BA55D3;
+}
+
+.bottom-slider {
+	width: 100%;
+	bottom: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #DDA0DD;
+	position: fixed;
+	z-index: 1000;
+}
+
+.bottom-slider-item {
+	flex: 0 0 100%;
+	padding: 1px;
+	text-align: center;
+	color: #BA55D3;
+	font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+
+<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html">
+<img src="logo.png" alt="Logo" align="left" height="80" width="80" style="position: fixed; z-index: 1100; margin-top: -480px; margin-left: 10px;">
+</a>
+
+<!-- Top navigation menu -->
+<div class="top-nav">
+    <span class="icon" onclick="toggleMenu()">&#9776;</span>
+    <div class="nav-links">
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html"> Home Page </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Accommodations.html"> Accommodations </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Tours and Packages.html"> Tours and Packages </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Destination.html"> Destination </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Booking System.html"> Booking System </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Contact us.html"> Contact Us </a>
+    </div>
+</div>
+
+<script>
+    // Function to toggle the visibility of the navigation links when icon is clicked
+    function toggleMenu() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('open');
+    }
+</script>
+
+<h1 class="contactshake"> contact us! </h1>
+
+<ul>
+  <li>
+    <a href="https://www.facebook.com/" aria-label="Facebook" class="facebook" target="_blank">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <i class="fab fa-facebook"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.instagram.com/" aria-label="Instagram" class="instagram" target="_blank">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <i class="fab fa-instagram"></i>
+    </a>
+  </li>
+  <li>
+    <a class="google" href="https://www.google.com/" aria-label="Google" target="_blank">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+</ul>
+
+<h4 class="timeshake" style="margin-top:320px; margin-left: -130px; font-size: 25px;"> Working time </h4>
+<h5 style="margin-top: 490px; margin-left: 45px;"> Monday - Thursday: 0900 - 1700 <br><br> Friday: 0900 - 1500 <br><br> Saturday - Sunday: CLOSE </h5>
+
+<div class="cardbd">
+<div class="card">
+<h6 class="entry-title"> Email: songabbiesong@gmail.com <br> Tel.no: 012 345 6789 <br> Address: 52, Learmouth Street, Hotspur, Victoria 3303, Australia </h6>
+<span> Contact us for more information! </span>
+</div>
+</div>
+
+<div class="bottom-slider">
+    <div class="bottom-slider-items" id="bottomSliderItems">
+        <div class="bottom-slider-item">
+            <p> WEBSITE BY: ABBIE SONG DCS2401001</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

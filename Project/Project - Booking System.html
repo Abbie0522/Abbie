@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual Project - Tours and Packages</title>
+<link rel="icon" href="logo.png" type="image/png">
+
+<!-- Booking System -->
+<style>
+body {
+	background-image: url('background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	color: white;
+	font-family: 'Sour Gummy', 'Inconsolata', 'Open Sans';
+	margin: 0;
+}
+
+.top-nav {
+	position: fixed;
+       	top: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #BA55D3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	z-index: 1000;
+}
+
+.top-nav a {
+	display: inline-block;
+	color: #FFE4C4;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.icon {
+	display: none;
+	cursor: pointer;
+	font-size: 30px;
+	color: #DB7093;
+}
+
+.icon:hover {
+  color: #FFF8DC;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: center;
+}
+
+.nav-links a {
+	margin: 0 10px;
+}
+
+@media screen and (max-width: 768px) {
+	.icon {
+		display: block;
+	}
+
+	.nav-links {
+               	display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: violet;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                z-index: 999;
+	}
+
+	.nav-links a {
+                padding: 10px;
+                text-align: center;
+	}
+
+	.nav-links.open {
+                display: flex;
+	}
+}
+
+.content {
+	padding-top: 120px;
+}
+
+folded {
+	font-family: 'Source Code Pro', monospace;
+	font-weight: 900;
+	font-size: calc(6vw + 0.5rem);
+	white-space: nowrap;
+	display: flex;
+	margin-top: 20px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	color: lch(76 39.21 9.23 / 0.5);
+	text-transform: uppercase;
+	transform: translate(-50%, -50%) skew(5deg) rotate(-5deg);
+	text-shadow: 1px 4px 6px lch(90 2.22 62.5), 0 0 0 lch(28 26.21 12.27), 1px 4px 6px lch(90 2.22 62.5);
+}
+
+folded::before {
+	content: attr(data-heading);
+	position: absolute;
+	left: -1.8%;
+	top: -4.8%;
+	overflow: hidden;
+	height: 50%;
+	color: lch(97 2.19 62.49);
+	transform: translate(1.6vw, 0) skew(-13deg) scale(1, 1.2);
+	text-shadow: 2px -1px 6px rgba(0,0,0,0.2);
+}
+
+folded::after {
+	content: attr(data-heading);
+	position: absolute;
+	left: 0;
+	color: lch(83 2.26 62.51);
+	transform: translate(0, 0) skew(13deg) scale(1, 0.8);
+	clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+	text-shadow: 2px -1px 6px lch(0 0 0 / 0.3);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+form {
+	max-width:500px; 
+	margin:50px auto;
+	margin-top: 300px;
+}
+
+.feedback-input {
+  color:black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 15px;
+  border-radius: 5px;
+  line-height: 20px;
+  background-color: transparent;
+  border:2px solid #FFC0CB;
+  transition: all 0.3s;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus {
+	border:2px solid #8B008B;
+}
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#FFB6C1;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:20px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+
+[type="submit"]:hover { 
+	background:#8B008B;
+}
+
+.hotelselect {
+	background-color: #FFEBF0;
+	border: 2px solid #FFB6C1;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 100px;
+}
+
+.tourismselect {
+	background-color: #FFEBF0;
+	border: 2px solid #FFB6C1;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 100px;
+}
+
+.guideselect {
+	background-color: #FFEBF0;
+	border: 2px solid #FFB6C1;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+
+option {
+	padding: 10px;
+	color: black;
+	background-color: #FFEBF0
+}
+
+select:focus option{
+	background-color: #FFEBF0;
+}
+
+.hotel {
+  position: absolute;
+  top: 350px;
+  font: 700 30px/1 'Source Sans Pro', Arial, sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -3px;
+  white-space: nowrap;
+
+  text-shadow:     
+	0 1px 0 hsl(174,5%,80%),
+	0 2px 0 hsl(174,5%,75%),
+	0 3px 0 hsl(174,5%,70%),
+	0 4px 0 hsl(174,5%,66%),
+	0 5px 0 hsl(174,5%,64%),
+	
+	0 0 5px rgba(0,0,0,.05),
+	0 1px 3px rgba(0,0,0,.2),
+	0 3px 5px rgba(0,0,0,.2),
+	0 5px 10px rgba(0,0,0,.2),
+	0 10px 10px rgba(0,0,0,.2);
+}
+
+.tourism {
+  position: absolute;
+  top: 345px;
+  font: 700 30px/1 'Source Sans Pro', Arial, sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -3px; 
+  white-space: nowrap;
+
+  text-shadow:     
+	0 1px 0 hsl(174,5%,80%),
+	0 2px 0 hsl(174,5%,75%),
+	0 3px 0 hsl(174,5%,70%),
+	0 4px 0 hsl(174,5%,66%),
+	0 5px 0 hsl(174,5%,64%),
+	
+	0 0 5px rgba(0,0,0,.05),
+	0 1px 3px rgba(0,0,0,.2),
+	0 3px 5px rgba(0,0,0,.2),
+	0 5px 10px rgba(0,0,0,.2),
+	0 10px 10px rgba(0,0,0,.2);
+}
+
+.guide {
+  position: absolute;
+  top: 350px;
+  font: 700 30px/1 'Source Sans Pro', Arial, sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -3px; 
+  white-space: nowrap;
+
+  text-shadow:     
+	0 1px 0 hsl(174,5%,80%),
+	0 2px 0 hsl(174,5%,75%),
+	0 3px 0 hsl(174,5%,70%),
+	0 4px 0 hsl(174,5%,66%),
+	0 5px 0 hsl(174,5%,64%),
+	
+	0 0 5px rgba(0,0,0,.05),
+	0 1px 3px rgba(0,0,0,.2),
+	0 3px 5px rgba(0,0,0,.2),
+	0 5px 10px rgba(0,0,0,.2),
+	0 10px 10px rgba(0,0,0,.2);
+}
+
+.introguide {
+  position: absolute;
+  top: 350px;
+  left: 23%;
+  font: 800 40px/1 'Source Sans Pro', Arial, sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -3px; 
+  white-space: nowrap;
+
+  text-shadow:     
+	0 1px 0 hsl(174,5%,80%),
+	0 2px 0 hsl(174,5%,75%),
+	0 3px 0 hsl(174,5%,70%),
+	0 4px 0 hsl(174,5%,66%),
+	0 5px 0 hsl(174,5%,64%),
+	
+	0 0 5px rgba(0,0,0,.05),
+	0 1px 3px rgba(0,0,0,.2),
+	0 3px 5px rgba(0,0,0,.2),
+	0 5px 10px rgba(0,0,0,.2),
+	0 10px 10px rgba(0,0,0,.2);
+}
+
+#kymain {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  animation: fadeIn 4s ease-in;
+  margin-top: 1150px;
+  margin-bottom: 200px;
+}
+
+.card {
+  height: 550px;
+  width: 900px;
+  background: pink;
+}
+
+.kyimg {
+  position: absolute;
+  top: 53%;
+  left: 53%;
+  transform: translateX(-100%) translateY(-50%);
+  height: 470px;
+  width: 370px;
+  background-image: url(kahyan.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.kyheadline {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateX(100%) translateY(-150%);
+  text-align: right;
+  font-family: 'Playfair Display SC', serif;
+}
+
+.kypara {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateX(20%) translateY(-20%);
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+}
+
+#abmain {
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  animation: fadeIn 4s ease-in;
+  margin-top: 1150px;
+  margin-bottom: 200px;
+}
+
+.abimg {
+  position: absolute;
+  top: 55%;
+  left: 54%;
+  transform: translateX(-100%) translateY(-50%);
+  height: 570px;
+  width: 470px;
+  background-image: url(anthomy.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.abheadline {
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  transform: translateX(100%) translateY(-150%);
+  text-align: right;
+  font-family: 'Playfair Display SC', serif;
+}
+
+.abpara {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translateX(20%) translateY(-20%);
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+}
+
+#bgmain {
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  animation: fadeIn 4s ease-in;
+  margin-top: 1150px;
+  margin-bottom: 200px;
+}
+
+.bgimg {
+  position: absolute;
+  top: 60%;
+  left: 54%;
+  transform: translateX(-100%) translateY(-50%);
+  height: 500px;
+  width: 400px;
+  background-image: url(grills.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.bgheadline {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translateX(100%) translateY(-150%);
+  text-align: right;
+  font-family: 'Playfair Display SC', serif;
+}
+
+.bgpara {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translateX(20%) translateY(-20%);
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+}
+
+#tyxmain {
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  animation: fadeIn 4s ease-in;
+  margin-top: 1100px;
+  margin-bottom: 200px;
+}
+
+.tyximg {
+  position: absolute;
+  top: 60%;
+  left: 54%;
+  transform: translateX(-100%) translateY(-50%);
+  height: 500px;
+  width: 400px;
+  background-image: url(tyx.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tyxheadline {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translateX(100%) translateY(-150%);
+  text-align: right;
+  font-family: 'Playfair Display SC', serif;
+}
+
+.tyxpara {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translateX(20%) translateY(-20%);
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+}
+
+#ptmain {
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  animation: fadeIn 3s ease-in;
+  margin-top: 1100px;
+  margin-bottom: 500px;
+}
+
+.ptimg {
+  position: absolute;
+  top: 55%;
+  left: 54%;
+  transform: translateX(-100%) translateY(-50%);
+  height: 500px;
+  width: 400px;
+  background-image: url(paul.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ptheadline {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translateX(100%) translateY(-150%);
+  text-align: right;
+  font-family: 'Playfair Display SC', serif;
+}
+
+.ptpara {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translateX(20%) translateY(-20%);
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+}
+
+#dot {
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(140%) translateY(200%);
+  background-image: url(http://www.appladesign.net/domains/create/documents/dots_266.png);
+  background-size: contain;
+  background-repeat: repeat;
+  z-index: 2;
+}
+
+#dot:before {
+  content: "";
+  position: absolute;
+  height: 200px;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-850%) translateY(-280%);
+  background-image: url(http://www.appladesign.net/domains/create/documents/dots_266.png);
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.block {
+  background: grey;
+  opacity: .5;
+  position: absolute;
+  height: 5px;
+  width: 200px;
+  top: 5%;
+  left: 65%;
+}
+
+.block:before {
+  content: "";
+  background: grey;
+  opacity: .5;
+  position: absolute;
+  height: 5px;
+  width: 80px;
+  top: 500px;
+  left: -145px;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bottom-slider {
+	width: 100%;
+	bottom: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #DDA0DD;
+	position: fixed;
+	left: 0;
+	z-index: 1000;
+}
+
+
+.bottom-slider-item {
+	flex: 0 0 100%;
+	padding: 1px;
+	text-align: center;
+	color: #BA55D3;
+	font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+
+<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html">
+<img src="logo.png" alt="Logo" align="left" height="80" width="80" style="position: fixed; z-index: 1100; margin-top: -290px; margin-left: 10px;">
+</a>
+
+<!-- Top navigation menu -->
+<div class="top-nav">
+    <span class="icon" onclick="toggleMenu()">&#9776;</span>
+    <div class="nav-links">
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html"> Home Page </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Accommodations.html"> Accommodations </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Tours and Packages.html"> Tours and Packages </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Destination.html"> Destination </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Booking System.html"> Booking System </a>
+        <a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Contact us.html"> Contact Us </a>
+    </div>
+</div>
+
+<script>
+    // Function to toggle the visibility of the navigation links when icon is clicked
+    function toggleMenu() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('open');
+    }
+</script>
+
+<folded contenteditable data-heading="Booking System"> Booking System </folded>
+<script>
+
+var folded = document.querySelector("folded");
+
+folded.addEventListener("input", function() {
+  this.setAttribute("data-heading", this.innerText);
+});
+
+</script>
+
+<form>
+<input name="name" type="text" class="feedback-input" placeholder="Name" />
+<input name="email" type="text" class="feedback-input" placeholder="Email" />
+
+<br><br>
+<h1 class="hotel" style="margin-top: 200px;"> HOTEL & RESORT </h1>
+<select class="hotelselect">
+<option value="0"> ~ List of Hotel & Resort in Sydney ~ </option>
+<option value="no"> - </option>
+<option value="parkhyatt"> Luxury Hotel - Park Hyatt Sydney </option>
+<option value="thelangham"> Luxury Hotel - The Langham </option>
+<option value="theultimo"> Mid-Range Hotel - The Ultimo </option>
+<option value="oakssydney"> Mid-Range Hotel - Oaks Sydney Hyde Park Suites </option>
+<option value="ibissydney"> Budget Hotel - Ibis Sydney World Square </option>
+<option value="thecapsule"> Budget Hotel - The Capsule Hotel </option>
+<option value="thedarling"> Boutique Hotel - The Darling Hotel </option>
+<option value="theoldclare"> Boutique Hotel - The Old Clare Hotel </option>
+</select>
+
+<h1 class="tourism" style="margin-top: 350px;"> Tourism Packages </h1>
+<select class="tourismselect">
+<option value="0"> ~ List of Tourism Packages ~ </option>
+<option value="no"> - </option>
+<option value="sydney"> RM2399 (4 days 3 nights - Sydney) </option>
+<option value="victoria"> RM3999 (5 days 4 nights - Victoria) </option>
+<option value="rockhampton"> RM1789 (3 days 2 nights - Rockhampton) </option>
+</select>
+
+<h1 class="guide" style="margin-top: 490px;"> Tourist Guide </h1>
+<select class="guideselect">
+<option value="0"> ~ List of Tourist Guide ~ </option>
+<option value="no"> - </option>
+<option value="p1"> Cheng Kah Yan </option>
+<option value="p2"> Anthomy Bourdain </option>
+<option value="p3"> Bear Grills </option>
+<option value="p4"> TYX </option>
+<option value="p5"> Paul Therox </option>
+</select>
+
+<input type="submit" value="SUBMIT"/>
+
+<h1 class="introguide" style="margin-top: 750px;"> Introduction of Tourist Guide </h1>
+<div id="kymain">
+  <div class="card"></div>
+  <div class="kyimg"></div>
+  <div class="block"></div>
+  <div class="kyheadline"><h1> CHENG KAH YAN </h1></div>
+  <div class="kypara"><p>American travel writer and TV personality <br><br> Focuses on European travel, offering tips for<br> cultural immersion <br><br> Host of Kah Yan's Australia </p></div>
+<div id="dot"></div>
+
+<div id="abmain">
+  <div class="card"></div>
+  <div class="abimg"></div>
+  <div class="block"></div>
+  <div class="abheadline"><h1> ANTHOMY BOURDAIN </h1></div>
+  <div class="abpara"><p> Late chef and travel documentarian <br><br> Explored global cuisines and cultures <br><br> Known for his shows Parts Unknown and No Reservations </p></div>
+<div id="dot"></div>
+
+<div id="bgmain">
+  <div class="card"></div>
+  <div class="bgimg"></div>
+  <div class="block"></div>
+  <div class="bgheadline"><h1> BEAR GRILLS </h1></div>
+  <div class="bgpara"><p> British adventurer and survival expert <br><br> Leads extreme wilderness tours and survival experiences <br><br> Host of Man vs Wild </p></div>
+<div id="dot"></div>
+
+<div id="tyxmain">
+  <div class="card"></div>
+  <div class="tyximg"></div>
+  <div class="block"></div>
+  <div class="tyxheadline"><h1> TYX </h1></div>
+  <div class="tyxpara"><p> Known for expertise in eco-tourism and sustainable travel <br><br> Popular among adventure seekers in Australia </p></div>
+<div id="dot"></div>
+
+<div id="ptmain">
+  <div class="card"></div>
+  <div class="ptimg"></div>
+  <div class="block"></div>
+  <div class="ptheadline"><h1> PAUL THEROX </h1></div>
+  <div class="ptpara"><p> Renowned travel writer and guide in literary travel <br><br> Author of The Great Railway Bazaar and other iconic travel books <br><br> Inspires readers to explore remote and untapped regions </p></div>
+<div id="dot"></div>
+
+<div class="bottom-slider">
+    <div class="bottom-slider-items" id="bottom-slider-items">
+        <div class="bottom-slider-item">
+            <p> WEBSITE BY: ABBIE SONG DCS2401001</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,903 @@
+<html>
+<head>
+<title> Individual Project - Home Page </title>
+<link rel=icon href=logo.png type=image/png>
+<meta charset = "UTF-8">
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+
+<!-- Home page -->
+
+<style>
+
+/* Apply background image to the entire webpage */
+body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      color: violet;
+      font-family:'Sour Gummy', 'Inconsolata', 'Open Sans';
+      margin: 0;
+}
+
+/* Navigation bar */
+.top-nav{
+	position:fixed;
+	top: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #BA55D3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	z-index: 1000;
+}
+
+/* Style the links inside the navigation bar */
+.top-nav a {
+	display: inline-block;
+	color: #FFE4C4;
+    	text-align: center;
+    	padding: 14px 16px;
+    	text-decoration: none;
+    	font-size: 20px;
+  }
+
+/* Icon styling */
+.icon {
+      display: none; /* Hide hamburger by default */
+      cursor: pointer;
+      font-size: 30px;
+      color: #DB7093;
+  }
+
+.icon:hover {
+  color: #FFF8DC;
+}
+
+/* The navigation items container */
+.nav-links {
+      display: flex;
+      justify-content: center;
+  }
+
+.nav-links a {
+      margin: 0 10px;
+  }
+
+/* When the viewport width is less than 768px, show the icon and hide the links */
+@media screen and (max-width: 768px) {
+	.icon {
+          display: block; 	/* Show hamburger on small screens */
+      	}
+
+	.nav-links {
+        display: none;		/* Hide links on small screens */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        background-color: violet;
+	position: absolute;
+	top:80px;
+	left: 0;
+	z-index: 999;
+      	}
+
+      .nav-links a {
+        padding: 10px;
+        text-align: center;
+      	}
+
+      /* When the menu is open, show the links */
+      .nav-links.open {
+        display: flex;
+      }
+}
+
+/* Additional styling for page content to avoid overlap */
+    .content {
+      padding-top: 120px; /* Space for the fixed menu */
+    }
+
+/* Travel tips styling */
+.tips-text {
+      	max-width: 200px;
+      	margin: 150px 0 150px 30px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #FFFFE0;
+}
+
+/* Bottom slider container */
+.bottom-slider {
+	width: 100%;
+	bottom: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #DDA0DD;
+	position: fixed;
+	z-index: 1000;
+}
+
+.bottom-slider-item {
+	flex: 0 0 100%;
+	padding: 1px;
+	text-align: center;
+	color: #BA55D3;
+	font-size: 13px;
+}
+
+/* Suggestion Sydney hotel styling */
+.suggestionhotelsydney-text{
+	margin: -1570px 0 150px 300px;
+	padding: 10px;
+	font-size: 30px;
+	color: black;
+	white-space: nowrap;
+}
+
+/* Hotel text styling */
+.parkhyatt-text {
+      	max-width: 460px;
+      	margin: -530px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #8A2BE2;
+}
+
+.thelangham-text {
+      	max-width: 460px;
+      	margin: 500px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #8A2BE2;
+}
+
+.theultimo-text {
+      	max-width: 460px;
+      	margin: 200px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #B0C4DE;
+}
+
+.oakssydney-text {
+      	max-width: 460px;
+      	margin: 200px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #B0C4DE;
+}
+
+.ibissydney-text {
+      	max-width: 460px;
+      	margin: 200px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px black;
+}
+
+.thecapsule-text {
+      	max-width: 460px;
+      	margin: 200px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px black;
+}
+
+.thedarling-text {
+      	max-width: 460px;
+      	margin: 200px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #FFE4B5;
+}
+
+.theoldclare-text {
+      	max-width: 460px;
+      	margin: 200px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #FFE4B5;
+}
+
+/* Suggestion hotel Victoria styling */
+.suggestionhotelvictoria-text{
+	margin: 100px 0 150px 300px;
+	padding: 10px;
+	font-size: 30px;
+	color: black;
+	white-space: nowrap;
+}
+
+.crownmetropol-text {
+      	max-width: 460px;
+      	margin: -120px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #FFE4B5;
+}
+
+.thesebel-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #FFE4B5;
+}
+
+.quest-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #7FFFD4;
+}
+
+.dingley-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #7FFFD4;
+}
+
+.parkdale-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #3CB371;
+}
+
+.nightcap-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #3CB371;
+}
+
+.zagame-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #9ACD32;
+}
+
+.adelphi-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #9ACD32;
+}
+
+/* Suggestion hotel Queensland styling */
+.suggestionhotelqueensland-text{
+	margin: 150px 0 150px 300px;
+	padding: 10px;
+	font-size: 30px;
+	color: black;
+	white-space: nowrap;
+}
+
+.theedge-text {
+      	max-width: 460px;
+      	margin: -100px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #B0C4DE;
+}
+
+.qualityhotel-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #B0C4DE;
+}
+
+.arrowonhotel-text {
+      	max-width: 460px;
+      	margin: 150px 0 150px 300px;
+      	padding: 20px;
+      	font-size: 18px;
+      	line-height: 1.5;
+      	text-align: justify;
+      	color: #333;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 8px #FA8072;
+}
+
+.crowntowerhotel-text {
+      max-width: 460px;
+      margin: 150px 0 150px 300px;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: justify;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #FA8072;
+}
+
+.stamfordhotel-text {
+      max-width: 460px;
+      margin: 150px 0 150px 300px;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: justify;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #DC143C;
+}
+
+.greatsouthern-text {
+      max-width: 460px;
+      margin: 150px 0 150px 300px;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: justify;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #DC143C;
+}
+
+.novotel-text {
+      max-width: 460px;
+      margin: 150px 0 150px 300px;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: justify;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #D2691E;
+}
+
+.pegasus-text {
+      max-width: 460px;
+      margin: 150px 0 150px 300px;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: justify;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #D2691E;
+}
+
+</style>
+</head>
+<body>
+
+<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html">
+<img src=logo.png alt="Logo" align=left height=80 width=80 style="position: fixed; z-index: 1100; margin-top:-140px; margin-left: 10px;">
+</a>
+
+<!-- Top navigation menu --!>
+<div class = "top-nav">
+	<span class="icon" onclick="toggleMenu()">&#9776;</span>
+  	<div class="nav-links">
+		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Home page.html"> Home Page </a>
+ 		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Accommodations.html"> Accommodations </a>
+  		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Tours and Packages.html"> Tours and Packages </a>
+  		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Destination.html"> Destination </a>
+		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Booking System.html"> Booking System </a>
+		<a href="C:\Users\Lenovo\OneDrive\Documents\Sem 3\Website design DCS 3003\Individual project\Project - Contact us.html"> Contact Us </a>
+	</div>
+</div>
+
+<script>
+  // Function to toggle the visibility of the navigation links when icon is clicked
+  function toggleMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('open');
+  }
+</script>
+
+<p class="tips-text">
+<b> Travel Tips </b>
+<br>
+Pack Smart: <br> Use a packing list and pack light especially if you'll be moving around frequently. <br><br>
+
+Keep Essentials in Your Carry-On: <br> Always have essentials like medications, chargers, a change of clothes and toiletries in your carry-on. <br><br>
+
+Use Digital Copies of Important Documents: <br> Take photos or scan your passport, tickets, IDs and any other important documents then store them securely in cloud storage and keep physical copies separately from the originals. <br><br>
+
+Notify Your Bank: <br> Inform your bank of your travel dates and destinations to prevent any issues with your credit or debit card being frozen due to "suspicious" activity abroad. <br><br>
+
+Stay Hydrated and Prioritize Sleep: <br> Traveling can disrupt your usual routine, so stay hydrated and get plenty of rest to keep your energy up and your immune system strong. <br><br>
+
+Be Cautious with WIFI: <br> Avoid using public WIFI for sensitive transactions like banking. <br><br>
+
+Embrace Flexibility: <br> Travel can be unpredictable, so stay open-minded and adaptable. <br>
+</p>
+
+<p class="suggestionhotelsydney-text" style="color: #FF69B4; text-shadow: 0 0 5px #9400D3, 0 0 10px #9400D3, 0 0 15px #9400D3, 0 0 20px #9400D3;">
+<b> Suggestion Hotel in New South Wales - Sydney </b>
+</p>
+
+<!-- Park hyatt hotel -->
+
+<a href="https://www.agoda.com/park-hyatt-sydney_5/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=91989c3e-a990-4bff-9eaf-77baa0d194ce&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=parkhyatthotel.jpg alt="Park Hyatt Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: 100px; margin-left: 300px;">
+
+</a>
+
+<img src=parkhyattproperty.png alt="Park Hyatt Property Overview" height=330 width=245 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<p class="parkhyatt-text">
+<a href="https://www.agoda.com/park-hyatt-sydney_5/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=91989c3e-a990-4bff-9eaf-77baa0d194ce&ds=ZEoJXFIS4tyxOPJ7" target="_blank"><b>  Luxury Hotel - Park Hyatt Sydney </a></b><br>
+
+Park Hyatt Sydney is a stunning waterfront property with panoramic views of the Sydney Opera House and Harbour Bridge. It is known for its world-class service, spacious rooms, and luxury amenities.
+</p>
+
+<!-- The langham hotel -->
+
+<p class="thelangham-text">
+<b><a href="https://www.agoda.com/the-langham-sydney-hotel/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=8f02e95a-11f4-4d79-8ff4-8ce525f9f39c&ds=ZEoJXFIS4tyxOPJ7" target="_blank">  Luxury Hotel - The Langham </a></b><br>
+
+A 5-star hotel in the heart of The Rocks, offering sophisticated decor, an indulgent spa, and a heated indoor pool. Ideal for those looking for a mix of elegance and comfort.
+</p>
+
+<a href="https://www.agoda.com/the-langham-sydney-hotel/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=8f02e95a-11f4-4d79-8ff4-8ce525f9f39c&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=thelanghamhotel.jpg alt="The Langham Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -135px; margin-left: 300px;">
+
+</a>
+
+<img src=thelanghamproperty.png alt="The Langham Property Overview" height=330 width=245 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<!-- The ultimo hotel -->
+
+<p class="theultimo-text">
+<b><a href="https://www.agoda.com/the-ultimo/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=ea8c9aa4-5466-4421-8ef4-ce48a212f566&ds=ZEoJXFIS4tyxOPJ7" target="_blank">  Mid-Range Hotel - The Ultimo </a></b><br>
+
+Located in the heart of Haymarket, close to Chinatown. Modern and comfortable with a quirky design. Great for travelers looking for quality at a more affordable price.
+</p>
+
+<a href="https://www.agoda.com/the-ultimo/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=ea8c9aa4-5466-4421-8ef4-ce48a212f566&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=theultimohotel.jpg alt="The Ultimo Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -135px; margin-left: 300px;">
+
+</a>
+
+<img src=theultimoproperty.png alt="The Ultimo Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<!-- Oaks Sydney Hyde Park Suites -->
+
+<p class="oakssydney-text">
+<b><a href="https://www.agoda.com/oaks-hyde-park-plaza-apartments/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&los=1&searchrequestid=9126b8a3-d1a7-4da8-be74-073a7bbb2393&ds=ZEoJXFIS4tyxOPJ7" target="_blank">  Mid-Range Hotel - Oaks Sydney Hyde Park Suites </a></b><br>
+
+Offering spacious apartments with kitchen facilities, this hotel is great for families or long-term stays. It's centrally located, just steps away from Hyde Park.
+</p>
+
+<a href="https://www.agoda.com/oaks-hyde-park-plaza-apartments/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&los=1&searchrequestid=9126b8a3-d1a7-4da8-be74-073a7bbb2393&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=oakssydneyhotel.jpg alt="Oaks Sydney Hyde Park Suites" height=300 width=500 style="position: relative; z-index: 100; margin-top: -135px; margin-left: 300px;">
+
+</a>
+
+<img src=oakssydneyproperty.png alt="Oaks Sydney Hyde Park Suites Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<!-- Ibis Sydney World Square -->
+
+<p class="ibissydney-text">
+<b><a href="https://www.agoda.com/hotel-ibis-world-square/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=03ea7421-0f4a-4e39-be2a-a4c97f522e8a&ds=ZEoJXFIS4tyxOPJ7" target="_blank">  Budget Hotel - Ibis Sydney World Square </a></b><br>
+
+Located in the city center, offering basic, budget-friendly accommodations with a prime location near shopping, restaurants, and public transport.
+</p>
+
+<a href="https://www.agoda.com/hotel-ibis-world-square/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=03ea7421-0f4a-4e39-be2a-a4c97f522e8a&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=ibissydneyhotel.jpg alt="Ibis Sydney World Square" height=300 width=500 style="position: relative; z-index: 100; margin-top: -135px; margin-left: 300px;">
+
+</a>
+
+<img src=ibissydneyproperty.png alt="Ibis Sydney World Square Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<!-- The capsule hotel -->
+
+<p class="thecapsule-text">
+<b><a href="https://www.agoda.com/the-capsule-hotel/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=6%2C16&los=1&searchrequestid=64cbbcb1-5b23-46e1-aedd-83ca115b3270&ds=ZEoJXFIS4tyxOPJ7" target="_blank">  Budget Hotel - The Capsule Hotel </a></b><br>
+
+A unique, budget-friendly option that offers compact capsule-style rooms, located in the Haymarket area. Great for solo travelers looking for a no-frills experience.
+</p>
+
+<a href="https://www.agoda.com/the-capsule-hotel/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=6%2C16&los=1&searchrequestid=64cbbcb1-5b23-46e1-aedd-83ca115b3270&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=thecapsulehotel.jpg alt="The Capsule Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -135px; margin-left: 300px;">
+
+</a>
+
+<img src=thecapsuleproperty.png alt="The Capsule Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<!-- The Darling -->
+
+<p class="thedarling-text">
+<b><a href="https://www.agoda.com/the-darling-i30-su-au-2271-1114/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&los=1&searchrequestid=cb6f4469-92ac-4a7e-bd24-77a188e78c10&ds=ZEoJXFIS4tyxOPJ7" target="_blank">  Boutique Hotel - The Darling Hotel </a></b><br>
+
+Located at The Star, this chic hotel features contemporary design, a casino, an excellent spa, and fine dining options.
+</p>
+
+<a href="https://www.agoda.com/the-darling-i30-su-au-2271-1114/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&los=1&searchrequestid=cb6f4469-92ac-4a7e-bd24-77a188e78c10&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=thedarlinghotel.jpg alt="The Darling Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -135px; margin-left: 300px;">
+
+</a>
+
+<img src=thedarlingproperty.png alt="The Darling Hotel Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<!-- The Old Clare Hotel -->
+
+<p class="theoldclare-text">
+<b><a href="https://www.agoda.com/the-old-clare-hotel/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=a1c02542-5039-44c8-94b4-6ef21abfc256&ds=ZEoJXFIS4tyxOPJ7" target="_blank">  Boutique Hotel - The Old Clare Hotel </a></b><br>
+
+A beautifully restored 1920s building with a unique blend of modern and historic features. Located in Chippendale, this boutique hotel offers a trendy and artistic vibe.
+</p>
+
+<a href="https://www.agoda.com/the-old-clare-hotel/hotel/sydney-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=293369e1-ac20-4e28-8961-28fab24d9d19&tspTypes=16&los=1&searchrequestid=a1c02542-5039-44c8-94b4-6ef21abfc256&ds=ZEoJXFIS4tyxOPJ7" target="_blank">
+
+<img src=theoldclarehotel.jpg alt="The Old Clare Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -135px; margin-left: 300px;">
+
+</a>
+
+<img src=theoldclareproperty.png alt="The Old Clare Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 820px;">
+
+<p class="suggestionhotelvictoria-text" style="color: #FF69B4; text-shadow: 0 0 5px #9400D3, 0 0 10px #9400D3, 0 0 15px #9400D3, 0 0 20px #9400D3;">
+<b> Suggestion Hotel in Kingston - Victoria </b>
+</p>
+
+<!-- Crown metropol melbourne -->
+
+<p class="crownmetropol-text">
+<b><a href="https://www.agoda.com/crown-metropol/hotel/all/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=36c2c41f-b82f-41eb-a65c-fde80623ea91&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Luxury Hotel - Crown Metropol Melbourne </a></b><br>
+
+Located in Southbank, Melbourne, with easy access to Kingston and surrounding areas. Offers spacious, modern rooms, an infinity pool, spa facilities, and rooftop bar with city views. Perfect for travelers looking for a luxury experience close to major attractions, shopping, and dining.
+</p>
+
+<a href="https://www.agoda.com/crown-metropol/hotel/all/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=36c2c41f-b82f-41eb-a65c-fde80623ea91&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=crownmetropolhotel.jpg alt="Crown Metropol Melbourne Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=crownmetropolproperty.png alt="Crown Metropol Melbourne Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- The Sebel Melbourne Malvern -->
+
+<p class="thesebel-text">
+<b><a href="https://www.agoda.com/the-sebel-melbourne-malvern/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=01cf33fd-3fe8-4671-9804-1ff3f99efe76&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Luxury Hotel - The Sebel Melbourne Malvern </a></b><br>
+
+Situated closer to Kingston in the Malvern area, offering upscale serviced apartments. Amenities include high-end kitchens, private balconies, and access to a fitness center and spa. Excellent choice for long stays with the comforts of a luxury apartment.
+</p>
+
+<a href="https://www.agoda.com/the-sebel-melbourne-malvern/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=01cf33fd-3fe8-4671-9804-1ff3f99efe76&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=thesebelhotel.jpg alt="The Sebel Melbourne Malvern Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=thesebelproperty.png alt="The Sebel Melbourne Malvern Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Quest Cheltenham -->
+
+<p class="quest-text">
+<b><a href="https://www.agoda.com/quest-cheltenham-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=22602866-d720-4f8b-9b28-474842cf2ad8&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Mid Range Hotel - Quest Cheltenham Hotel </a></b><br>
+
+Located in Cheltenham, close to Kingston’s main area. Provides serviced apartments with kitchen facilities, perfect for both short and long stays. Amenities include a fitness center, BBQ area, and business services.
+</p>
+
+<a href="https://www.agoda.com/quest-cheltenham-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=22602866-d720-4f8b-9b28-474842cf2ad8&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=questhotel.jpg alt="Quest Cheltenham Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=questproperty.png alt="Quest Cheltenham Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Dingley Hotel -->
+
+<p class="dingley-text">
+<b><a href="https://www.agoda.com/dingley-international-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=3%2C16&los=1&searchrequestid=de6026ab-47bd-45d1-acdc-6027c17cdad8&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Mid Range Hotel - Dingley Hotel </a></b><br>
+
+Situated in Dingley Village, surrounded by golf courses and parks. Offers a range of rooms and suites, family-friendly with an outdoor pool, on-site restaurant, and sports bar. Great for travelers seeking a relaxed and comfortable stay with on-site dining.
+</p>
+
+<a href="https://www.agoda.com/dingley-international-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=3%2C16&los=1&searchrequestid=de6026ab-47bd-45d1-acdc-6027c17cdad8&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=dingleyhotel.jpg alt="Dingley Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=dingleyproperty.png alt="Dingley Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Parkdale Motor Inn Hotel -->
+
+<p class="parkdale-text">
+<b><a href="https://www.agoda.com/parkdale-motor-inn/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=3&los=1&searchrequestid=321547cf-91d5-45eb-b4e1-5807cb475504&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Budget Hotel - Parkdale Motor Inn Hotel </a></b><br>
+
+Situated in Parkdale, a convenient option near Kingston attractions. Budget-friendly accommodations with free Wi-Fi, parking, and access to Parkdale Beach. Simple and comfortable, perfect for short stays or quick stopovers.
+</p>
+
+<a href="https://www.agoda.com/parkdale-motor-inn/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=3&los=1&searchrequestid=321547cf-91d5-45eb-b4e1-5807cb475504&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=parkdalehotel.jpg alt="Parkdale Motor Inn Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=parkdaleproperty.png alt="Parkdale Motor Inn Hotel Property Overview" height=330 width=240 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Nightcap at Sandbelt Hotel -->
+
+<p class="nightcap-text">
+<b><a href="https://www.agoda.com/sandbelt-hotel-moorabbin/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&los=1&searchrequestid=836d1170-bec6-4b2b-b6d5-1f1f791fbb46&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Budget Hotel - Parkdale Motor Inn Hotel </a></b><br>
+
+Located in Moorabbin, providing easy access to Kingston’s highlights. Affordable with basic amenities like Wi-Fi, parking, and an on-site bistro. Great for budget-conscious travelers seeking comfort and convenience.
+</p>
+
+<a href="https://www.agoda.com/sandbelt-hotel-moorabbin/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&los=1&searchrequestid=836d1170-bec6-4b2b-b6d5-1f1f791fbb46&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=nightcaphotel.jpg alt="Nightcap at Sandbelt Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=nightcapproperty.png alt="Nightcap at Sandbelt Hotel Property Overview" height=330 width=240 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Zagame's Hotel -->
+
+<p class="zagame-text">
+<b><a href="https://www.agoda.com/zagame-s-house_2/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=-1&los=1&searchrequestid=b10cf035-cd97-4610-86c0-91059c2db13d&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Boutique Hotel - Zagame's Hotel </a></b><br>
+
+A unique boutique hotel in Melbourne’s Carlton area, within driving distance of Kingston. Features eclectic decor, a focus on sustainability, and a trendy wine bar and restaurant. Ideal for travelers who appreciate design-forward spaces and a contemporary vibe.
+</p>
+
+<a href="https://www.agoda.com/zagame-s-house_2/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=-1&los=1&searchrequestid=b10cf035-cd97-4610-86c0-91059c2db13d&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=zagamehotel.jpg alt="Zagame's Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=zagameproperty.png alt="Zagame's Hotel Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Adelphi Hotel -->
+
+<p class="adelphi-text">
+<b><a href="https://www.agoda.com/adelphi-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&los=1&searchrequestid=b60a790c-213a-41ca-b6fc-eee8f82541d2&ds=vF8nA8L%2BfDBN3oyn" target="_blank">  Boutique Hotel - Adelphi Hotel </a></b><br>
+
+Located in Melbourne’s CBD, known for its playful and stylish design inspired by desserts. Offers vibrant, whimsical decor with modern luxuries like a rooftop pool and bar. Great for travelers looking for a lively atmosphere, central location, and a unique aesthetic.
+</p>
+
+<a href="https://www.agoda.com/adelphi-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&los=1&searchrequestid=b60a790c-213a-41ca-b6fc-eee8f82541d2&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=adelphihotel.jpg alt="Adelphi Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=adelphiproperty.png alt="Adelphi Hotel Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<p class="suggestionhotelqueensland-text" style="color: #FF69B4; text-shadow: 0 0 5px #9400D3, 0 0 10px #9400D3, 0 0 15px #9400D3, 0 0 20px #9400D3;">
+<b> Suggestion Hotel in Rockhampton - Queensland </b>
+</p>
+
+<!-- The Edge Apartment Hotel -->
+
+<p class="theedge-text">
+<b><a href="https://theedgeapartments.com.au/?msclkid=8fda53931c651fbf144b34a0e78fb2b9&gclid=8fda53931c651fbf144b34a0e78fb2b9&gclsrc=3p.ds" target="_blank"> Luxury Hotel - The Edge Apartment Hotel </a></b><br>
+
+A stylish, upscale hotel offering self-contained apartments with balconies overlooking the river. Amenities include a fitness center, swimming pool, and easy access to dining options. Great for families, long-term stays, or travelers who prefer a high-end apartment experience.
+</p>
+
+<a href="https://theedgeapartments.com.au/?msclkid=8fda53931c651fbf144b34a0e78fb2b9&gclid=8fda53931c651fbf144b34a0e78fb2b9&gclsrc=3p.ds" target="_blank">
+
+<img src=theedgehotel.jpg alt="The Edge Apartment Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=thelanghamproperty.png alt="Adelphi Hotel Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Quality Hotel Regent Rockhampton -->
+
+<p class="qualityhotel-text">
+<b><a href="https://www.booking.com/hotel/au/quality-regent-rockhampton.en-gb.html?aid=2276380&label=msn-zfyFv_4NqQeSJM2Nk3F0Fw-80127059548177%3Atikwd-80127212715382%3Aloc-112%3Aneo%3Amte%3Alp150572%3Adec%3AqsQuality%20Hotel%20Regent%20Rockhampton%20Hotel%20australia&sid=44348547a69b2b2b92cc9de9560705d1&dest_id=-1597814&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1731462241&srpvid=b4910c244e0e031a&type=total&ucfs=1&" target="_blank"> Luxury Hotel - Quality Hotel Regent Rockhampton </a></b><br>
+
+Housed in a beautifully restored heritage building with modern rooms and suites. Includes a pool, on-site restaurant, and meeting rooms, ideal for business travelers and couples. Known for its charm, combining historic architecture with contemporary amenities.
+</p>
+
+<a href="https://www.booking.com/hotel/au/quality-regent-rockhampton.en-gb.html?aid=2276380&label=msn-zfyFv_4NqQeSJM2Nk3F0Fw-80127059548177%3Atikwd-80127212715382%3Aloc-112%3Aneo%3Amte%3Alp150572%3Adec%3AqsQuality%20Hotel%20Regent%20Rockhampton%20Hotel%20australia&sid=44348547a69b2b2b92cc9de9560705d1&dest_id=-1597814&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1731462241&srpvid=b4910c244e0e031a&type=total&ucfs=1&" target="_blank">
+
+<img src=qualityhotel.jpg alt="Quality Hotel Regent Rockhampton" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=dingleyproperty.png alt="Quality Hotel Regent Rockhampton Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Arrow on Swanton Hotel -->
+
+<p class="arrowonhotel-text">
+<b><a href="https://www.agoda.com/arrow-on-swanston-apartments/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&los=1&searchrequestid=e9b9d979-b901-47b0-9c8d-713c33ef6c4d&ds=vF8nA8L%2BfDBN3oyn" target="_blank"> Mid-Range Hotel - Arrow on Swanton Hotel </a></b><br>
+
+Spacious modern apartments in Melbourne's CBD for two travelers. Resort-style facilities include lap pool, sauna, and gym. 24/7 security, room service, and onsite café for breakfast. Explore nearby attractions and dining options at Arrow On Swanston.
+</p>
+
+<a href="https://www.agoda.com/arrow-on-swanston-apartments/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&los=1&searchrequestid=e9b9d979-b901-47b0-9c8d-713c33ef6c4d&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=arrowonhotel.jpg alt="Arrow On Swanston Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=dingleyproperty.png alt="Arrow On Swanston Hotel Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Crown Towers Melbourne Hotel -->
+
+<p class="crowntowerhotel-text">
+<b><a href="https://www.agoda.com/crown-towers-melbourne/hotel/all/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=7&los=1&searchrequestid=e9b9d979-b901-47b0-9c8d-713c33ef6c4d&ds=vF8nA8L%2BfDBN3oyn" target="_blank"> Mid-Range Hotel - Crown Towers Melbourne Hotel </a></b><br>
+
+Experience ultimate luxury at Crown Towers Melbourne in the heart of the city. Indulge in meticulously designed rooms offering unparalleled comfort and elegance. Enjoy breathtaking outdoor views in select rooms.
+</p>
+
+<a href="https://www.agoda.com/crown-towers-melbourne/hotel/all/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=7&los=1&searchrequestid=e9b9d979-b901-47b0-9c8d-713c33ef6c4d&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=crowntowerhotel.jpg alt="Crown Towers Melbourne Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=crowntowerproperty.png alt="Crown Towers Melbourne Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Stamford Plaza Melbourne Hotel -->
+
+<p class="stamfordhotel-text">
+<b><a href="https://www.agoda.com/stamford-plaza-melbourne/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=15%2C16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank"> Budget Hotel - Stamford Plaza Melbourne Hotel </a></b><br>
+
+Get your trip off to a great start with a stay at this property, which offers free Wi-Fi in all rooms. It's centrally located in Melbourne CBD only 590 m from public transport, so that you'll have easy access to local areas. Don't leave before paying a visit to the famous Royal Botanic Gardens Victoria.
+</p>
+
+<a href="https://www.agoda.com/stamford-plaza-melbourne/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=15%2C16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=stamfordhotel.jpg alt="Stamford Plaza Melbourne Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=stamfordproperty.png alt="Stamford Plaza Melbourne Hotel Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Great Southern Hotel Melbourne -->
+
+<p class="greatsouthern-text">
+<b><a href="https://www.agoda.com/great-southern-hotel-melbourne/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=7%2C6%2C16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank"> Budget Hotel - Great Southern Hotel Melbourne </a></b><br>
+
+Conveniently located in Melbourne's CBD, Great Southern Hotel Melbourne is perfect for solo travelers. Explore popular attractions like Crowne Casino, Melbourne Aquarium, and the Exhibition and Convention Centre. Enjoy a delicious breakfast buffet with plenty of options.
+</p>
+
+<a href="https://www.agoda.com/great-southern-hotel-melbourne/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=7%2C6%2C16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=greatsouthernhotel.jpg alt="Great Southern Hotel Melbourne" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=greatsouthernproperty.png alt="Great Southern Hotel Melbourne Property Overview" height=330 width=250 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Novotel Melbourne on Collins Hotel -->
+
+<p class="novotel-text">
+<b><a href="https://www.agoda.com/novotel-melbourne-on-collins-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank"> Boutique Hotel - Novotel Melbourne on Collins Hotel </a></b><br>
+
+Discover the best of Melbourne at Novotel Melbourne on Collins. Located in the heart of the CBD, the hotel offers solo travelers a perfect base to explore renowned attractions, vibrant dining options, and a thriving arts scene. Indulge in the exclusive facilities, including an indoor pool and a bar.
+</p>
+
+<a href="https://www.agoda.com/novotel-melbourne-on-collins-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=novotelhotel.jpg alt="Novotel Melbourne on Collins Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px;">
+
+</a>
+
+<img src=novotelproperty.png alt="Novotel Melbourne on Collins Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -315px; margin-left: 830px;">
+
+<!-- Pegasus Apartment Hotel -->
+
+<p class="pegasus-text">
+<b><a href="https://www.agoda.com/pegasus-apartment-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank"> Boutique Hotel - Pegasus Apartment Hotel </a></b><br>
+
+Solo travelers will love the vibrant stay at Pegasus Apartment Hotel in SoHo. Themed rooms with interactive games, free WiFi, and a central location. Enjoy the indoor heated pool.
+</p>
+
+<a href="https://www.agoda.com/pegasus-apartment-hotel/hotel/melbourne-au.html?finalPriceView=1&isShowMobileAppPrice=false&cid=1915003&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2024-11-21&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=0&showReviewSubmissionEntry=false&currencyCode=MYR&isFreeOccSearch=false&tag=eaf2b085-bdb1-4a5f-a015-408cbda65bf2&tspTypes=16&los=1&searchrequestid=47e37110-a4e1-457d-aa9f-b83d68ba40e7&ds=vF8nA8L%2BfDBN3oyn" target="_blank">
+
+<img src=pegasushotel.jpg alt="Pegasus Apartment Hotel" height=300 width=500 style="position: relative; z-index: 100; margin-top: -100px; margin-left: 300px; margin-bottom: 100px;">
+
+</a>
+
+<img src=pegasusproperty.png alt="Pegasus Apartment Hotel Property Overview" height=330 width=260 style="position: relative; z-index: 100; margin-top: -410px; margin-left: 830px;">
+
+<div class="bottom-slider">
+    <div class="bottom-slider-items" id="bottomSliderItems">
+        <div class="bottom-slider-item">
+            <p> WEBSITE BY: ABBIE SONG DCS2401001</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
